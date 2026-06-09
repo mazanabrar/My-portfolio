@@ -1,5 +1,5 @@
 import React from 'react';
-import './Navbar.css'; 
+import './navbar.css'; 
 
 function Navbar() {
   // Explicit mapping structure to prevent link ID mismatch errors
