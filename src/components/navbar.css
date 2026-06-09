@@ -1,0 +1,92 @@
+/* Container to fix the position and center it horizontally */
+.site-header-container {
+  position: fixed;
+  top: 24px; 
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 1000;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  box-sizing: border-box;
+  padding: 0 20px;
+}
+
+/* Hyper-Transparent Premium Glass Pill */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+  /* Ultra-transparent base (95% transparent) */
+  background-color: rgba(255, 255, 255, 0.05); 
+  
+  /* Maximum distortion: Heavy blur + hyper-saturation of background elements */
+  backdrop-filter: blur(30px) saturate(200%);
+  -webkit-backdrop-filter: blur(30px) saturate(200%); 
+  
+  /* Crystal-sharp edge reflection */
+  border: 1px solid rgba(255, 255, 255, 0.45); 
+  
+  padding: 8px 12px 8px 40px; 
+  border-radius: 40px; 
+  width: 100%;
+  max-width: 620px; 
+  
+  /* Multi-layered shadow simulates light passing through real thick glass */
+  box-shadow: 
+    0 4px 30px rgba(0, 0, 0, 0.02),
+    0 20px 40px rgba(0, 0, 0, 0.06),
+    inset 0 1px 1px rgba(255, 255, 255, 0.3); /* Inner shine */
+}
+
+/* Brand / Logo Styling */
+.brand {
+  color: #000000; 
+  text-decoration: none;
+  font-weight: 800; 
+  font-size: 16px;
+  letter-spacing: -0.02em;
+  text-shadow: 0 1px 4px rgba(255, 255, 255, 0.4); /* Prevents black text drowning on dark image spots */
+}
+
+/* Center Navigation Links */
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 24px; 
+}
+
+.nav-link {
+  color: rgba(0, 0, 0, 0.7); 
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600; 
+  transition: all 0.2s ease-in-out;
+  text-shadow: 0 1px 4px rgba(255, 255, 255, 0.4);
+}
+
+.nav-link:hover {
+  color: #000000; 
+  transform: translateY(-1px);
+}
+
+/* Right Side Action Button - High Contrast Core */
+.cta-button {
+  background-color: #0c3cff; 
+  color: #ffffff;            
+  text-decoration: none;
+  padding: 10px 24px;
+  border-radius: 30px; 
+  font-size: 14px;
+  font-weight: 600;
+  display: inline-block;
+  transition: all 0.2.5s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.cta-button:hover {
+  background-color: #1a1a1a; 
+  transform: scale(1.04) translateY(-1px);    
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}

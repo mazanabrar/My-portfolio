@@ -1,0 +1,273 @@
+/* Base Canvas Setup */
+.projects-section {
+  position: relative;
+  padding: 160px 24px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background: transparent !important;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Hyper Neon Ambient Orbs */
+.neon-orb-blue, .neon-orb-violet {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(140px);
+  opacity: 0.25;
+  z-index: 1;
+  pointer-events: none;
+}
+.neon-orb-blue {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, #0086ff 0%, rgba(255,255,255,0) 70%);
+  top: 10%;
+  left: -10%;
+  animation: floatOrb 20s infinite alternate ease-in-out;
+}
+.neon-orb-violet {
+  width: 550px;
+  height: 550px;
+  background: radial-gradient(circle, #7000ff 0%, rgba(255,255,255,0) 70%);
+  bottom: 15%;
+  right: -5%;
+  animation: floatOrb 25s infinite alternate-reverse ease-in-out;
+}
+@keyframes floatOrb {
+  0% { transform: translateY(0px) scale(1); }
+  100% { transform: translateY(60px) scale(1.15); }
+}
+
+.projects-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.projects-headline {
+  font-size: clamp(36px, 5vw, 54px);
+  font-weight: 800;
+  line-height: 1.1;
+  color: #000000;
+  letter-spacing: -0.04em;
+  margin-bottom: 70px;
+}
+
+/* MAGAZINE BALANCED ASYMMETRIC GRID */
+.magazine-project-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 32px;
+  width: 100%;
+}
+
+/* Slot Formations - Standard boxes se chutkara */
+.slot-1 { grid-column: span 7; min-height: 440px; }
+.slot-2 { grid-column: span 5; min-height: 440px; margin-top: 40px; }
+.slot-3 { grid-column: span 6; min-height: 420px; margin-top: -20px; }
+
+/* HIGH END TRANSLUCENT MAGAZINE BENTO CARD */
+.mag-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 48px;
+  border-radius: 32px;
+  cursor: pointer;
+  
+  /* Thick Crystal Liquid Glass */
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(30px) saturate(180%);
+  -webkit-backdrop-filter: blur(30px) saturate(180%);
+  
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  box-shadow: 
+    0 10px 40px rgba(0, 0, 0, 0.02),
+    inset 0 1px 2px rgba(255, 255, 255, 0.5);
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Light beam overlay inside card */
+.glass-shine-layer {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 50%);
+  pointer-events: none;
+  transition: transform 0.6s ease;
+}
+
+.mag-card:hover {
+  border-color: rgba(0, 134, 255, 0.5);
+  box-shadow: 0 30px 60px rgba(0, 134, 255, 0.08);
+}
+.mag-card:hover .glass-shine-layer {
+  transform: scale(1.4) rotate(10deg);
+}
+
+/* Header Row Elements */
+.mag-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.mag-tag {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #0086ff;
+  background: rgba(0, 134, 255, 0.06);
+  padding: 6px 14px;
+  border-radius: 30px;
+}
+.mag-year {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+/* Body Context */
+.mag-title {
+  font-size: clamp(28px, 4vw, 36px);
+  font-weight: 800;
+  color: #000000;
+  margin: 24px 0 12px 0;
+  letter-spacing: -0.03em;
+}
+.mag-desc {
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(0, 0, 0, 0.6);
+  margin: 0;
+}
+
+/* Footer Control Elements */
+.mag-card-footer {
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.mag-action-text {
+  font-size: 14px;
+  font-weight: 600;
+  color: #000000;
+  transition: color 0.3s;
+}
+.mag-btn-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #000000;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Hover Physics for buttons */
+.mag-card:hover .mag-action-text { color: #0086ff; }
+.mag-card:hover .mag-btn-circle {
+  background: #0086ff;
+  transform: rotate(45deg);
+}
+
+/* DETAILED INTERACTIVE DRAWER PANEL SYSTEM */
+.modal-backdrop {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(8px);
+  z-index: 2000;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.detailed-glass-panel {
+  width: 100%;
+  max-width: 550px;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border-left: 1px solid rgba(255, 255, 255, 0.6);
+  padding: 60px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  box-shadow: -20px 0 60px rgba(0,0,0,0.05);
+  overflow-y: auto;
+}
+
+.close-panel-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  align-self: flex-start;
+  padding: 0;
+  margin-bottom: 40px;
+  color: #000;
+  transition: transform 0.2s;
+}
+.close-panel-btn:hover { transform: scale(1.15) rotate(90deg); }
+
+.panel-tag {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #0086ff;
+  margin-bottom: 8px;
+}
+.panel-title {
+  font-size: 42px;
+  font-weight: 800;
+  color: #000;
+  letter-spacing: -0.03em;
+  margin: 0 0 30px 0;
+}
+
+.panel-meta-row {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 30px;
+}
+.panel-meta-row span {
+  font-size: 12px;
+  color: rgba(0,0,0,0.4);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.panel-meta-row p { font-size: 15px; font-weight: 600; color: #000; margin: 4px 0 0 0; }
+
+.panel-divider {
+  border: none;
+  border-top: 1px solid rgba(0,0,0,0.08);
+  margin-bottom: 30px;
+}
+
+.panel-body h3 { font-size: 16px; font-weight: 700; color: #000; margin: 0 0 12px 0; text-transform: uppercase; letter-spacing: 0.02em; }
+.panel-body p { font-size: 16px; line-height: 1.6; color: rgba(0,0,0,0.7); margin-bottom: 40px; }
+
+.panel-tech-wrap { display: flex; flex-wrap: wrap; gap: 8px; }
+.panel-tech-pill {
+  background: rgba(0,0,0,0.05);
+  color: #000;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* RESPONSIVE LAYOUT CLEANUP */
+@media (max-width: 900px) {
+  .magazine-project-grid { grid-template-columns: 1fr; gap: 24px; }
+  .slot-1, .slot-2, .slot-3 { grid-column: span 1; margin-top: 0; min-height: auto; }
+  .detailed-glass-panel { padding: 40px; }
+}

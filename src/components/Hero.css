@@ -1,0 +1,213 @@
+/* Hero Section Interactive Canvas */
+.hero-section {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 180px 40px 100px 40px; 
+  max-width: 1140px;
+  margin: 0 auto;
+  gap: 60px;
+  box-sizing: border-box;
+  background: transparent !important;
+}
+
+/* CYBER TECH MATRIX DEEP LAYERS */
+.hero-grid-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-size: 30px 30px;
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.015) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.015) 1px, transparent 1px);
+  mask-image: radial-gradient(circle at 50% 50%, black 40%, transparent 90%);
+  -webkit-mask-image: radial-gradient(circle at 50% 50%, black 40%, transparent 90%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero-ambient-glow {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(12, 60, 255, 0.08) 0%, rgba(255,255,255,0) 70%);
+  filter: blur(80px);
+  top: 10%;
+  right: 10%;
+  z-index: 1;
+  pointer-events: none;
+  animation: slowPulse 8s infinite alternate ease-in-out;
+}
+@keyframes slowPulse {
+  0% { transform: scale(1) translateY(0); opacity: 0.7; }
+  100% { transform: scale(1.15) translateY(-20px); opacity: 1; }
+}
+
+.hero-copy {
+  flex: 1;
+  text-align: left;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-eyebrow {
+  color: rgba(0, 0, 0, 0.4);
+  font-family: monospace;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 18px;
+}
+.hero-eyebrow span {
+  color: #0c3cff;
+  margin-right: 6px;
+}
+
+.hero-copy h1 {
+  font-size: clamp(44px, 5.5vw, 64px);
+  font-weight: 800;
+  color: #111115;
+  margin: 0 0 24px 0;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+
+.highlight-blue {
+  color: #0c3cff;
+  position: relative;
+}
+
+.hero-description {
+  color: rgba(0, 0, 0, 0.65);
+  font-size: 17px;
+  line-height: 1.65;
+  margin-bottom: 40px;
+  max-width: 540px;
+}
+
+/* ACTIONS BUTTON MATRIX SETUP */
+.hero-actions {
+  display: flex;
+  gap: 16px;
+}
+
+.hero-primary-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 36px;
+  border-radius: 40px;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  background-color: #000000;
+  color: #ffffff;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+.hero-primary-btn svg {
+  transition: transform 0.3s ease;
+}
+
+/* Hover Physics for CTA Button */
+.hero-primary-btn:hover {
+  background-color: #0c3cff;
+  box-shadow: 0 15px 30px rgba(12, 60, 255, 0.25);
+}
+.hero-primary-btn:hover svg {
+  transform: translateX(4px);
+}
+
+/* =========================================
+   THE CV LUXURY CAPSULE PICTURE CONFIGURATION
+   ========================================= */
+.hero-image-frame-container {
+  position: relative;
+  z-index: 2;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.hero-image-frame-container:hover {
+  transform: scale(1.02) rotate(0.5deg);
+}
+
+.hero-image-frame {
+  position: relative;
+  width: 310px;
+  height: 410px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  border-radius: 160px 160px 32px 32px;
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.03);
+}
+
+.me-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 160px 160px 30px 30px;
+  z-index: 3;
+  position: relative;
+}
+
+/* ARCH RINGS DECOUPLED FROM PSEUDOS FOR CONTROL */
+.arc-ring {
+  position: absolute;
+  pointer-events: none;
+  z-index: 2;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ring-left {
+  top: -12px;
+  left: -12px;
+  bottom: 40px;
+  width: 100%;
+  border-radius: 180px 0 0 180px;
+  border-left: 3px solid #0c3cff;
+  border-top: 3px solid #0c3cff;
+}
+
+.ring-right {
+  bottom: -12px;
+  right: -12px;
+  top: 120px;
+  width: 100%;
+  border-radius: 0 0 180px 0;
+  border-right: 3px solid #111115;
+  border-bottom: 3px solid #111115;
+}
+
+/* Hover cross expansion for Rings */
+.hero-image-frame-container:hover .ring-left {
+  transform: translate(-4px, -4px);
+}
+.hero-image-frame-container:hover .ring-right {
+  transform: translate(4px, 4px);
+}
+
+/* RESPONSIVE SCROLL CLEANUP */
+@media (max-width: 900px) {
+  .hero-section {
+    flex-direction: column-reverse;
+    text-align: center;
+    padding-top: 150px;
+    gap: 48px;
+  }
+  .hero-copy {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .hero-description {
+    margin-bottom: 32px;
+  }
+  .hero-actions {
+    justify-content: center;
+  }
+}
