@@ -20,7 +20,7 @@
   --mono: ui-monospace, SFMono-Regular, Consolas, monospace;
 
   font: 18px/145% var(--sans);
-  letter-spacing: -0.01em;
+  letter-spacing: 0;
   color: var(--text);
   background: var(--bg);
   font-synthesis: none;
@@ -53,6 +53,22 @@ body {
   background-color: var(--bg);
   position: relative;
   overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+img,
+svg {
+  max-width: 100%;
 }
 
 /* GLOBAL AMBIENT LIQUID BACKGROUND
@@ -127,7 +143,7 @@ h1, h2, h3 {
 h1 {
   font-size: 52px;
   font-weight: 700;
-  letter-spacing: -0.02em;
+  letter-spacing: 0;
   line-height: 1.1;
   margin-bottom: 24px;
 }
@@ -143,8 +159,24 @@ h2 {
   font-size: 22px;
   font-weight: 600;
   line-height: 130%;
-  letter-spacing: -0.01em;
+  letter-spacing: 0;
   margin-bottom: 12px;
+}
+
+@media (max-width: 640px) {
+  body::before {
+    width: 360px;
+    height: 360px;
+    top: -80px;
+    right: -180px;
+  }
+
+  body::after {
+    width: 420px;
+    height: 420px;
+    top: 760px;
+    left: -240px;
+  }
 }
 
 @media (max-width: 1024px) {

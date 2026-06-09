@@ -22,7 +22,7 @@
   font-weight: 800;
   line-height: 1.15;
   color: #000000;
-  letter-spacing: -0.03em;
+  letter-spacing: 0;
   max-width: 850px;
   margin-bottom: 60px;
 }
@@ -161,10 +161,48 @@
 
 /* Responsive breakdowns */
 @media (max-width: 850px) {
+  .about-section {
+    padding: 96px 18px;
+  }
+
   .about-grid {
     grid-template-columns: 1fr;
     gap: 20px;
   }
   .about-card { padding: 32px; }
   .about-ai-note { margin-top: 24px; }
+}
+
+@media (max-width: 560px) {
+  .about-section {
+    padding: 78px 16px;
+  }
+
+  .about-headline {
+    font-size: clamp(30px, 9vw, 36px);
+    margin-bottom: 34px;
+  }
+
+  .about-card {
+    padding: 24px;
+    border-radius: 24px;
+  }
+
+  .section-sub-title {
+    font-size: 18px;
+  }
+
+  .about-card p {
+    font-size: 14.5px;
+  }
+
+  .about-ai-note {
+    padding: 14px 16px;
+  }
+
+  .tech-badge-pill {
+    flex: 1 1 135px;
+    justify-content: center;
+    padding: 10px 14px;
+  }
 }

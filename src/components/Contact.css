@@ -98,7 +98,7 @@
   font-weight: 800;
   line-height: 1.15;
   color: #000000;
-  letter-spacing: -0.03em;
+  letter-spacing: 0;
   margin-bottom: 16px;
 }
 
@@ -197,7 +197,28 @@
 
 /* Small Screens Responsive Mechanics */
 @media (max-width: 650px) {
-  .contact-glass-card { padding: 32px; border-radius: 28px; }
+  .contact-section { padding: 78px 16px; }
+  .contact-glass-card { padding: 28px; border-radius: 28px; }
   .contact-footer-meta { flex-direction: column; gap: 24px; }
   .contact-primary-btn { width: 100%; justify-content: center; }
+  .status-badge-row {
+    width: 100%;
+    align-items: flex-start;
+    border-radius: 20px;
+  }
+  .status-text {
+    line-height: 1.4;
+  }
+  .contact-headline {
+    font-size: clamp(30px, 9vw, 36px);
+  }
+  .social-links-grid {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 380px) {
+  .contact-glass-card {
+    padding: 24px 20px;
+  }
 }

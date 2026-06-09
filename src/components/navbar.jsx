@@ -16,7 +16,7 @@ function Navbar() {
     <header className="site-header-container">
       <div className="site-header">
         {/* Left Side: Brand Name - Fixed to snap directly to the top of Hero viewport */}
-        <a className="brand" href="targetId='home'">
+        <a className="brand" href="#hero">
           Home
         </a>
 

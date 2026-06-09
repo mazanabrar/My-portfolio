@@ -52,7 +52,7 @@
   font-weight: 800;
   line-height: 1.1;
   color: #000000;
-  letter-spacing: -0.04em;
+  letter-spacing: 0;
   margin-bottom: 70px;
 }
 
@@ -137,7 +137,7 @@
   font-weight: 800;
   color: #000000;
   margin: 24px 0 12px 0;
-  letter-spacing: -0.03em;
+  letter-spacing: 0;
 }
 .mag-desc {
   font-size: 16px;
@@ -229,7 +229,7 @@
   font-size: 42px;
   font-weight: 800;
   color: #000;
-  letter-spacing: -0.03em;
+  letter-spacing: 0;
   margin: 0 0 30px 0;
 }
 
@@ -267,7 +267,82 @@
 
 /* RESPONSIVE LAYOUT CLEANUP */
 @media (max-width: 900px) {
+  .projects-section { padding: 96px 18px; }
   .magazine-project-grid { grid-template-columns: 1fr; gap: 24px; }
   .slot-1, .slot-2, .slot-3 { grid-column: span 1; margin-top: 0; min-height: auto; }
   .detailed-glass-panel { padding: 40px; }
+}
+
+@media (max-width: 560px) {
+  .projects-section {
+    padding: 78px 16px;
+  }
+
+  .projects-headline {
+    font-size: clamp(30px, 9vw, 38px);
+    margin-bottom: 36px;
+  }
+
+  .mag-card {
+    padding: 26px;
+    border-radius: 24px;
+  }
+
+  .mag-card-header {
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .mag-tag {
+    max-width: 78%;
+    line-height: 1.35;
+    border-radius: 18px;
+  }
+
+  .mag-title {
+    font-size: 27px;
+  }
+
+  .mag-desc {
+    font-size: 14.5px;
+  }
+
+  .mag-card-footer {
+    margin-top: 32px;
+  }
+
+  .mag-action-text {
+    font-size: 13px;
+  }
+
+  .mag-btn-circle {
+    width: 40px;
+    height: 40px;
+    flex: 0 0 40px;
+  }
+
+  .modal-backdrop {
+    align-items: flex-end;
+  }
+
+  .detailed-glass-panel {
+    max-width: none;
+    height: 88svh;
+    padding: 28px 22px 32px;
+    border-left: 0;
+    border-radius: 28px 28px 0 0;
+  }
+
+  .close-panel-btn {
+    margin-bottom: 26px;
+  }
+
+  .panel-title {
+    font-size: 32px;
+  }
+
+  .panel-meta-row {
+    flex-direction: column;
+    gap: 16px;
+  }
 }
