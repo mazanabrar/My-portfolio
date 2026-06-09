@@ -10,14 +10,20 @@ import './App.css';
 function App() {
   return (
     <>
-      <Navbar />
-      <Hero />
-      <About />
-      <Skills />
-      <Projects />
-      <Contact />
+      {/* Navbar ko top layer par azaad rakhne ke liye wrapper */}
+      <div style={{ position: 'relative', zIndex: 999999 }}>
+        <Navbar />
+      </div>
+
+      {/* Saara content ek main tag mein jo rigid layer 1 par rahega */}
+      <main style={{ position: 'relative', zIndex: 1, backgroundColor: 'transparent' }}>
+        <Hero />
+        <About />
+        <Skills />
+        <Projects />
+        <Contact />
+      </main>
     </>
   );
 }
-
 export default App;
