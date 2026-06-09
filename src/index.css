@@ -1,14 +1,14 @@
 :root {
   /* Colors extracted from Muhammad Mazan Ibrar - CV.jpg */
-  --bg: #f8f9fa;                 /* Ultra-clean neutral base matching your About section */
-  --text: #4a4a4e;               /* Soft charcoal gray for highly readable body text */
-  --text-h: #111115;             /* Deep off-black for bold headers */
-  --border: rgba(0, 0, 0, 0.06); /* Clean, subtle gray borders for glass separation */
-  --code-bg: #f4f3ec;            /* Light neutral tint for code snippets */
+  --bg: #f8f9fa;                 
+  --text: #4a4a4e;               
+  --text-h: #111115;             
+  --border: rgba(0, 0, 0, 0.06); 
+  --code-bg: #f4f3ec;            
   
   /* Signature CV Blue Accent Palette */
-  --accent: #0086ff;             /* The exact vibrant blue from your CV name & markers */
-  --accent-bg: rgba(0, 134, 255, 0.08); /* Transparent blue backdrop for pills or highlights */
+  --accent: #0086ff;             
+  --accent-bg: rgba(0, 134, 255, 0.08); 
   --accent-border: rgba(0, 134, 255, 0.4);
   
   --social-bg: rgba(244, 243, 236, 0.5);
@@ -33,7 +33,6 @@
   }
 }
 
-/* Persistent clean layout even if user browser is on dark mode */
 @media (prefers-color-scheme: dark) {
   :root {
     --bg: #f8f9fa;
@@ -64,6 +63,7 @@ body {
 html {
   width: 100%;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 img,
@@ -83,7 +83,6 @@ body::after {
   z-index: 0;
 }
 
-/* Top Right Blob */
 body::before {
   width: 600px;
   height: 600px;
@@ -93,7 +92,6 @@ body::before {
   animation: globalDrift 20s infinite alternate ease-in-out;
 }
 
-/* Bottom Left Blob */
 body::after {
   width: 700px;
   height: 700px;
@@ -109,27 +107,22 @@ body::after {
 }
 
 #root {
-  position: relative;
-  /* 🌟 z-index: 1 hata diya taake navbar globally float kare */
   width: 100%;
   max-width: 100%;
   margin: 0;
-  text-align: left;
   min-height: 100svh;
   display: flex;
   flex-direction: column;
-  box-sizing: border-box;
 }
 
-/* Global Section Setup - FIXED LAYER STACK */
+/* CLEAN GLOBAL SECTIONS */
 .section, section {
-  background: transparent !important; 
   position: relative;
-  /* 🌟 z-index: 2 se badal kar 1 kar diya taake text navbar ke niche chala jaye */
-  z-index: 1; 
+  padding: 72px 32px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
 }
 
-/* Headings typography mapping */
 h1, h2, h3 {
   font-family: var(--heading);
   color: var(--text-h);
@@ -139,65 +132,33 @@ h1, h2, h3 {
 h1 {
   font-size: 52px;
   font-weight: 700;
-  letter-spacing: 0;
   line-height: 1.1;
   margin-bottom: 24px;
 }
 
 @media (max-width: 1024px) {
-  h1 {
-    font-size: 38px;
-    margin-bottom: 16px;
-  }
+  h1 { font-size: 38px; margin-bottom: 16px; }
 }
 
 h2 {
   font-size: 22px;
   font-weight: 600;
   line-height: 130%;
-  letter-spacing: 0;
   margin-bottom: 12px;
 }
 
 @media (max-width: 640px) {
-  body::before {
-    width: 360px;
-    height: 360px;
-    top: -80px;
-    right: -180px;
-  }
-
-  body::after {
-    width: 420px;
-    height: 420px;
-    top: 760px;
-    left: -240px;
-  }
+  body::before { width: 360px; height: 360px; top: -80px; right: -180px; }
+  body::after { width: 420px; height: 420px; top: 760px; left: -240px; }
 }
 
-@media (max-width: 1024px) {
-  h2 {
-    font-size: 20px;
-  }
-}
+p { margin: 0 0 16px 0; line-height: 1.6; }
 
-p {
-  margin: 0 0 16px 0;
-  line-height: 1.6;
-}
-
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
-}
-
-code {
-  font-size: 14px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
-  border: 1px solid var(--border);
-}
+/* Skills & Projects layout configurations */
+.skill-list, .project-grid { display: grid; gap: 14px; margin-top: 28px; }
+.skill-list { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
+.skill-list span, .project-card { border: 1px solid var(--border); border-radius: 8px; background: var(--social-bg); }
+.skill-list span { padding: 14px 16px; color: var(--text-h); font-weight: 600; }
+.project-grid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+.project-card { padding: 22px; }
+.project-card h3 { margin: 0 0 10px; color: var(--text-h); }
