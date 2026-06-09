@@ -71,23 +71,19 @@ svg {
   max-width: 100%;
 }
 
-/* GLOBAL AMBIENT LIQUID BACKGROUND
-  Yeh fluid blobs ab poori website ke peeche smoothly move (drift) karenge.
-  Jab aap Hero se About section tak scroll karenge, to glass text aur 
-  navbar ke peeche in rangon ka refraction real-time me look badlega.
-*/
+/* GLOBAL AMBIENT LIQUID BACKGROUND */
 body::before,
 body::after {
   content: "";
   position: absolute;
   border-radius: 50%;
-  filter: blur(120px); /* Heavy blur for soft premium smoky look */
-  opacity: 0.18;       /* Exactly optimized so background stays light and clean */
+  filter: blur(120px); 
+  opacity: 0.18;       
   pointer-events: none;
   z-index: 0;
 }
 
-/* Top Right Blob - Signature CV Blue Gradient */
+/* Top Right Blob */
 body::before {
   width: 600px;
   height: 600px;
@@ -97,7 +93,7 @@ body::before {
   animation: globalDrift 20s infinite alternate ease-in-out;
 }
 
-/* Bottom Left Blob - High End Energetic Red/Orange Transition */
+/* Bottom Left Blob */
 body::after {
   width: 700px;
   height: 700px;
@@ -107,7 +103,6 @@ body::after {
   animation: globalDrift 25s infinite alternate-reverse ease-in-out;
 }
 
-/* Cinematic continuous floating movement */
 @keyframes globalDrift {
   0% { transform: translateY(0px) translateX(0px) scale(1); }
   100% { transform: translateY(60px) translateX(30px) scale(1.15); }
@@ -115,7 +110,7 @@ body::after {
 
 #root {
   position: relative;
-  z-index: 1; /* Pure section content blobs ke upar float karega */
+  /* 🌟 z-index: 1 hata diya taake navbar globally float kare */
   width: 100%;
   max-width: 100%;
   margin: 0;
@@ -126,11 +121,12 @@ body::after {
   box-sizing: border-box;
 }
 
-/* Global Section Setup (Ensuring transparency across Hero, About, etc.) */
+/* Global Section Setup - FIXED LAYER STACK */
 .section, section {
-  background: transparent !important; /* Kisi bhi section ka solid bg isko block nahi karega */
+  background: transparent !important; 
   position: relative;
-  z-index: 2;
+  /* 🌟 z-index: 2 se badal kar 1 kar diya taake text navbar ke niche chala jaye */
+  z-index: 1; 
 }
 
 /* Headings typography mapping */
