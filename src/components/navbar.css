@@ -16,29 +16,31 @@
 }
 
 .site-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  width: 100% !important;
+  border-radius: 40px !important;
+  padding: 8px 12px 8px 28px !important;
   
-  /* 🌟 White tint ko 0.05 se badha kar 0.18 kiya taake white screen par glass ka dhabba alag se dikhe */
-  background-color: rgba(255, 255, 255, 0.18); 
+  /* 🌟 Force hardware acceleration to fix live rendering */
+  transform: translateZ(0) !important;
+  will-change: backdrop-filter, -webkit-backdrop-filter !important;
   
-  /* Heavy distortion blur aur saturation */
-  backdrop-filter: blur(24px) saturate(180%);
-  -webkit-backdrop-filter: blur(24px) saturate(180%); 
+  /* 🌟 Optimized Background tint & opacity for high-contrast live visibility */
+  background-color: rgba(255, 255, 255, 0.28) !important; 
   
-  /* Crystal-sharp border */
-  border: 1px solid rgba(255, 255, 255, 0.5); 
+  /* 🌟 Bulletproof Cross-Browser Heavy Blur */
+  -webkit-backdrop-filter: blur(30px) saturate(210%) !important; 
+  backdrop-filter: blur(30px) saturate(210%) !important; 
   
-  padding: 8px 12px 8px 28px;
-  border-radius: 40px;
-  width: 100%;
-  max-width: 620px;
+  /* 3D reflection border */
+  border: 1px solid rgba(255, 255, 255, 0.6) !important; 
   
-  /* Solid drop shadow jo navbar ko 3D look degi */
+  /* Deep 3D box shadow to simulate thick premium glass over the big text */
   box-shadow: 
-    0 10px 30px rgba(0, 0, 0, 0.05),
-    inset 0 1px 2px rgba(255, 255, 255, 0.5); 
+    0 12px 32px rgba(0, 0, 0, 0.05),
+    inset 0 1px 2px rgba(255, 255, 255, 0.5) !important;
 }
 
 /* Brand / Logo Styling */

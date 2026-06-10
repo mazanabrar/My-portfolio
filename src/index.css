@@ -27,12 +27,16 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
 
-  @media (max-width: 1024px) {
+/* Responsive Font Size for Root */
+@media (max-width: 1024px) {
+  :root {
     font-size: 16px;
   }
 }
 
+/* Persistent clean layout even if user browser is on dark mode */
 @media (prefers-color-scheme: dark) {
   :root {
     --bg: #f8f9fa;
@@ -136,10 +140,6 @@ h1 {
   margin-bottom: 24px;
 }
 
-@media (max-width: 1024px) {
-  h1 { font-size: 38px; margin-bottom: 16px; }
-}
-
 h2 {
   font-size: 22px;
   font-weight: 600;
@@ -147,18 +147,54 @@ h2 {
   margin-bottom: 12px;
 }
 
+p { 
+  margin: 0 0 16px 0; 
+  line-height: 1.6; 
+}
+
+/* Skills & Projects layout configurations */
+.skill-list, .project-grid { 
+  display: grid; 
+  gap: 14px; 
+  margin-top: 28px; 
+}
+
+.skill-list { 
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); 
+}
+
+.skill-list span, .project-card { 
+  border: 1px solid var(--border); 
+  border-radius: 8px; 
+  background: var(--social-bg); 
+}
+
+.skill-list span { 
+  padding: 14px 16px; 
+  color: var(--text-h); 
+  font-weight: 600; 
+}
+
+.project-grid { 
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+}
+
+.project-card { 
+  padding: 22px; 
+}
+
+.project-card h3 { 
+  margin: 0 0 10px; 
+  color: var(--text-h); 
+}
+
+/* Media Queries for Typography & Screen adjustments */
+@media (max-width: 1024px) {
+  h1 { font-size: 38px; margin-bottom: 16px; }
+  h2 { font-size: 20px; }
+}
+
 @media (max-width: 640px) {
   body::before { width: 360px; height: 360px; top: -80px; right: -180px; }
   body::after { width: 420px; height: 420px; top: 760px; left: -240px; }
 }
-
-p { margin: 0 0 16px 0; line-height: 1.6; }
-
-/* Skills & Projects layout configurations */
-.skill-list, .project-grid { display: grid; gap: 14px; margin-top: 28px; }
-.skill-list { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
-.skill-list span, .project-card { border: 1px solid var(--border); border-radius: 8px; background: var(--social-bg); }
-.skill-list span { padding: 14px 16px; color: var(--text-h); font-weight: 600; }
-.project-grid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
-.project-card { padding: 22px; }
-.project-card h3 { margin: 0 0 10px; color: var(--text-h); }
