@@ -5,36 +5,46 @@ import './Project.css';
 function Projects() {
   const [selectedProject, setSelectedProject] = useState(null);
 
+  // 🖼️ Data structure upgraded with dynamic assets, live links, and code bases
   const projects = [
     {
-     id: 1,
-    name: 'DRS App',
-    tag: 'Government / National System',
-    shortDesc: 'Secure device registration and verification system used for national-level tracking and compliance.',
-    longDesc: 'A government-grade device registration and verification platform designed to handle secure identity validation, device tracking, and compliance workflows. Built with a strong focus on security, performance, and scalable architecture to support large-scale public sector operations.',
-    client: 'Telecom Regulatory Authority',
-    tech: ['Flutter', 'PHP', 'Laravel', 'PostgreSQL', 'REST APIs'],
-    year: '2025'
+      id: 1,
+      name: 'DRS App',
+      tag: 'Government / National System',
+      shortDesc: 'Secure device registration and verification system used for national-level tracking and compliance.',
+      longDesc: 'A government-grade device registration and verification platform designed to handle secure identity validation, device tracking, and compliance workflows. Built with a strong focus on security, performance, and scalable architecture to support large-scale public sector operations.',
+      client: 'Telecom Regulatory Authority',
+      tech: ['Flutter', 'PHP', 'Laravel', 'PostgreSQL', 'REST APIs'],
+      year: '2025',
+      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80', // Injected dashboard preview
+      liveLink: '#', // Replace with real URL
+      sourceLink: '#' // Replace with github/gitlab link if open-source
     },
     {
       id: 2,
-    name: 'Lodenza Store',
-    tag: 'E-Commerce / Fashion',
-    shortDesc: 'Modern fashion e-commerce platform with a focus on clean UI, branding, and user experience.',
-    longDesc: 'A visually refined e-commerce platform built for a fashion brand, focusing on UI/UX consistency, product presentation, and conversion-friendly design. Implemented responsive layouts, optimized product pages, and smooth user interactions for better engagement.',
-    client: 'Lodenza Fashion Brand',
-    tech: ['React.js', 'Shopify', 'Tailwind CSS', 'JavaScript'],
-    year: '2026'
+      name: 'Lodenza Store',
+      tag: 'E-Commerce / Fashion',
+      shortDesc: 'Modern fashion e-commerce platform with a focus on clean UI, branding, and user experience.',
+      longDesc: 'A visually refined e-commerce platform built for a fashion brand, focusing on UI/UX consistency, product presentation, and conversion-friendly design. Implemented responsive layouts, optimized product pages, and smooth user interactions for better engagement.',
+      client: 'Lodenza Fashion Brand',
+      tech: ['React.js', 'Shopify', 'Tailwind CSS', 'JavaScript'],
+      year: '2026',
+      image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=800&q=80', // Injected e-commerce web snapshot
+      liveLink: '#',
+      sourceLink: '#'
     },
     {
       id: 3,
-    name: 'Help Desk Mobile App',
-    tag: 'Enterprise Tool / Productivity',
-    shortDesc: 'Cross-platform ticketing system for managing internal support requests and workflow tracking.',
-    longDesc: 'A structured support and ticket management system designed for internal organizational use. It includes request handling, status tracking, and workflow routing to improve operational efficiency and communication between departments.',
-    client: 'Internal Enterprise System',
-    tech: ['Flutter', 'Firebase', 'Node.js', '.NET REST APIs integration'],
-    year: '2025'
+      name: 'Help Desk Mobile App',
+      tag: 'Enterprise Tool / Productivity',
+      shortDesc: 'Cross-platform ticketing system for managing internal support requests and workflow tracking.',
+      longDesc: 'A structured support and ticket management system designed for internal organizational use. It includes request handling, status tracking, and workflow routing to improve operational efficiency and communication between departments.',
+      client: 'Internal Enterprise System',
+      tech: ['Flutter', 'Firebase', 'Node.js', '.NET REST APIs integration'],
+      year: '2025',
+      image: 'https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=800&q=80', // Injected productivity workflow preview
+      liveLink: '#',
+      sourceLink: '#'
     },
   ];
 
@@ -65,9 +75,9 @@ function Projects() {
         viewport={{ once: true, amount: 0.1 }}
       >
         <p className="eyebrow">Featured Projects</p>
-<h2 className="projects-headline">
-  Creating seamless mobile experiences through thoughtful design and development.
-</h2>
+        <h2 className="projects-headline">
+          Creating seamless mobile experiences through thoughtful design and development.
+        </h2>
 
         {/* The Asymmetric Magazine Layout */}
         <div className="magazine-project-grid">
@@ -85,6 +95,16 @@ function Projects() {
               <div className="mag-card-header">
                 <span className="mag-tag">{project.tag}</span>
                 <span className="mag-year">{project.year}</span>
+              </div>
+
+              {/* ⚡ NEW: INJECTED VISUAL PREVIEW WRAPPER FOR AUTHENTICITY */}
+              <div className="mag-visual-wrapper">
+                <img 
+                  className="project-visual-media" 
+                  src={project.image} 
+                  alt={`${project.name} Visual Preview`} 
+                  loading="lazy"
+                />
               </div>
 
               <div className="mag-card-body">
@@ -130,12 +150,30 @@ function Projects() {
                 </svg>
               </button>
 
+              {/* ⚡ NEW: FULL-WIDTH HIGH QUALITY IN-DRAWER CASE STUDY MEDIA */}
+              <div className="panel-hero-visual">
+                <img src={selectedProject.image} alt={`${selectedProject.name} Expanded Mockup`} />
+              </div>
+
               <span className="panel-tag">{selectedProject.tag}</span>
               <h2 className="panel-title">{selectedProject.name}</h2>
               
               <div className="panel-meta-row">
                 <div><span>Client</span><p>{selectedProject.client}</p></div>
                 <div><span>Timeline</span><p>{selectedProject.year}</p></div>
+              </div>
+
+              {/* ⚡ NEW: ACTION LINKS INJECTED TO ROUTE TO THE ACTUAL LIVE SYSTEMS */}
+              <div className="panel-action-links">
+                <a href={selectedProject.liveLink} target="_blank" rel="noopener noreferrer" className="panel-btn-primary">
+                  <span>Launch Live App</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/>
+                  </svg>
+                </a>
+                <a href={selectedProject.sourceLink} target="_blank" rel="noopener noreferrer" className="panel-btn-secondary">
+                  <span>Review Code Base</span>
+                </a>
               </div>
 
               <hr className="panel-divider" />

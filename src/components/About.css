@@ -1,208 +1,469 @@
-/* About Section Base Wrapper Layout */
+/* ===================================================
+   🪐 BASE CANVAS & GRID LAYOUT
+   =================================================== */
 .about-section {
   position: relative;
-  padding: 160px 24px;
+  padding: 140px 24px;
   width: 100%;
   display: flex;
-  align-items: center;
   justify-content: center;
   background: transparent !important;
-  box-sizing: border-box;
   overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* 🟢 NEW: MASSIVE DYNAMIC AMBIENT BACKGROUND GLOW CORE DIRECTIVES */
+.about-ambient-glow {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1; /* Renders perfectly behind bento cards */
+  filter: blur(160px); /* Hyper smooth velvet blur scale */
+  opacity: 0.18; /* Soft subtle glow authority retained */
+  transition: background-color 0.6s ease;
+}
+
+.main-glow-top-left {
+  width: 800px;
+  height: 800px;
+  /* Drops a breathing neon aura pulling dynamic system accent variables */
+  background: radial-gradient(circle, var(--accent-glow) 0%, rgba(0,0,0,0) 70%);
+  top: -10%;
+  left: -15%;
+}
+
+.main-glow-bottom-right {
+  width: 700px;
+  height: 700px;
+  /* Velvet purple balance point anchoring the bottom bento block scales */
+  background: radial-gradient(circle, rgba(123, 31, 162, 0.7) 0%, rgba(0,0,0,0) 70%);
+  bottom: -5%;
+  right: -10%;
+}
+
+:root[data-theme="light"] .about-ambient-glow {
+  opacity: 0.08; /* Blinding prevention protocol for light mode base canvas scaling */
+  filter: blur(130px);
 }
 
 .about-container {
   width: 100%;
-  max-width: 960px;
-  margin: 0 auto;
+  max-width: 1100px;
+  position: relative;
+  z-index: 2; /* Ensures bento grid remains interactable over glows */
+}
+
+.eyebrow {
+  font-family: var(--mono, 'Courier New', monospace);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 12px;
 }
 
 .about-headline {
-  font-size: clamp(34px, 5vw, 48px);
+  font-size: clamp(32px, 4.5vw, 48px);
   font-weight: 800;
   line-height: 1.15;
-  color: #000000;
-  letter-spacing: 0;
+  color: var(--text-h);
   max-width: 850px;
+  letter-spacing: -0.02em;
   margin-bottom: 60px;
+  transition: color 0.4s ease;
 }
 
-/* ASYMMETRIC COMPACT BENTO GRID */
+/* 🧱 GRID SPREADS CONFIG */
 .about-grid {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr; 
-  gap: 28px;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 32px;
   width: 100%;
-  align-items: stretch;
 }
 
-/* Thick Frosted Crystal Card Structuring */
-.about-card {
-  position: relative;
-  padding: 44px;
-  border-radius: 32px;
-  background: rgba(255, 255, 255, 0.22);
-  backdrop-filter: blur(25px) saturate(160%);
-  -webkit-backdrop-filter: blur(25px) saturate(160%);
-  
-  border: 1px solid rgba(255, 255, 255, 0.65);
-  box-shadow: 
-    0 10px 35px rgba(0, 0, 0, 0.015),
-    inset 0 1px 1px rgba(255, 255, 255, 0.5);
-  overflow: hidden;
+.main-narrative-split { 
+  margin-bottom: 32px; 
+}
+
+.narrative-card { 
+  grid-column: span 7; 
+}
+
+.pipeline-visual-card {
+  grid-column: span 5;
   display: flex;
   flex-direction: column;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  justify-content: space-between;
 }
 
-/* Micro-lighting sheen across cards background */
+.about-code-ide { 
+  grid-column: span 5; 
+}
+
+.toolkit-card { 
+  grid-column: span 7; 
+}
+
+/* ===================================================
+   🔮 HIGH-END FROSTED BENTO CARDS
+   =================================================== */
+.about-card {
+  position: relative;
+  padding: 40px;
+  border-radius: 28px;
+  background: var(--social-bg);
+  backdrop-filter: blur(30px) saturate(180%);
+  -webkit-backdrop-filter: blur(30px) saturate(180%);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
 .card-glass-glow {
   position: absolute;
-  top: 0; left: 0; right: 0; height: 100%;
-  background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 60%);
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0) 50%);
   pointer-events: none;
-  z-index: 1;
 }
 
 .section-sub-title {
-  font-size: 20px;
+  font-size: 14px;
   font-weight: 700;
-  color: #000000;
-  margin: 0 0 20px 0;
-  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  margin: 0 0 16px 0;
 }
 
-/* Card Text Styling & Margins */
-.highlight-lead {
-  font-size: 17px;
-  font-weight: 700;
-  color: #0086ff; /* Clean CV Blue branding code fallback */
-  margin: 0 0 12px 0;
+.highlight-lead, .pipeline-lead {
+  font-size: clamp(22px, 3vw, 28px);
+  font-weight: 800;
+  color: var(--text-h);
+  margin: 0 0 20px 0;
+  letter-spacing: -0.01em;
 }
 
 .about-card p {
   font-size: 15.5px;
   line-height: 1.65;
-  color: rgba(0, 0, 0, 0.65);
-  margin-top: 0;
-  margin-bottom: 20px; /* Automated paragraph vertical gap */
+  color: var(--text);
+  margin: 0 0 18px 0;
+  opacity: 0.9;
 }
-.about-card p:last-of-type { margin-bottom: 0; }
 
-/* Enhanced Note Frame Layout */
 .about-ai-note {
-  margin-top: 28px; /* Safe padding separating text copy from note element block */
-  display: flex;
-  gap: 12px;
-  align-items: flex-start;
+  margin-top: 28px;
   padding: 16px 20px;
-  background: rgba(245, 158, 11, 0.06); 
-  border: 1px solid rgba(245, 158, 11, 0.15);
-  border-left: 4px solid #f59e0b;
   border-radius: 14px;
-}
-.about-ai-note span {
+  background: var(--code-bg);
+  border-left: 3px solid var(--accent);
   font-size: 13.5px;
   line-height: 1.5;
-  color: #78350f;
+  color: var(--text);
 }
 
-/* TECH BADGES WALL CONFIGURATION */
-.toolkit-desc {
-  font-size: 15px;
-  color: rgba(0,0,0,0.5) !important;
-  margin-bottom: 24px !important;
-}
-
-.tech-badge-wall {
+/* ===================================================
+   ⚡ THE TECH PIPELINE FLOW VISUALIZATION DIRECTIVES
+   =================================================== */
+.pipeline-flow-container {
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
   width: 100%;
+  padding: 24px 0;
+  margin-bottom: 20px;
 }
 
-/* The High-End Tech Pill Matrix */
+.pipeline-node {
+  position: relative;
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.node-figma { color: #f24e1e; }
+.node-frontend { color: #02569b; }
+.node-backend { color: #ff2d20; }
+.node-database { color: #336791; }
+
+.pipeline-node:hover {
+  transform: scale(1.15);
+  border-color: var(--accent);
+  box-shadow: 0 0 15px var(--accent-glow);
+}
+
+.node-caption {
+  position: absolute;
+  bottom: -22px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text);
+  opacity: 0.7;
+  white-space: nowrap;
+}
+
+.pipeline-connector-line {
+  position: relative;
+  flex: 1;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.08);
+  margin: 0 8px;
+  overflow: hidden;
+}
+
+.pipeline-pulse-dot {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent));
+}
+
+/* ===================================================
+   📊 LIVE PIPELINE TERMINAL OUTPUTS
+   =================================================== */
+.pipeline-terminal-terminal {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 14px 18px;
+  font-family: var(--mono, monospace);
+}
+
+.terminal-top-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.term-dot-red {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: #ff5f56;
+}
+
+.term-text-title {
+  font-size: 11px;
+  color: var(--text);
+  opacity: 0.5;
+}
+
+.terminal-log-output {
+  min-height: 24px;
+  display: flex;
+  align-items: center;
+}
+
+.log-line-item {
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.log-line-item.type-success { color: #10b981; }
+.log-line-item.type-process { color: #f59e0b; }
+.log-line-item.type-info { color: #3b82f6; }
+
+/* ===================================================
+   💻 THE DYNAMIC SYNTAX HIGHLIGHTED IDE SHELL
+   =================================================== */
+.about-code-ide {
+  background: rgba(13, 16, 22, 0.88);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  font-family: var(--mono, 'Courier New', monospace);
+  display: flex;
+  flex-direction: column;
+  min-height: 340px;
+  transition: border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.about-code-ide:hover,
+.about-code-ide {
+  border-color: var(--active-tech-color) !important;
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.25), 
+    0 0 35px -10px var(--active-tech-glow) !important;
+}
+
+.ide-header {
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 0 20px;
+  height: 48px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.ide-tab-container {
+  margin-left: 20px;
+  display: flex;
+  height: 100%;
+  align-items: flex-end;
+}
+
+.ide-tab {
+  font-size: 12px;
+  font-weight: 600;
+  color: #929dae;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 8px 8px 0 0;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: none;
+}
+
+.tab-icon {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+}
+
+.ide-body { 
+  padding: 24px; 
+  overflow-y: auto;
+  overflow-x: auto;
+  flex: 1;
+}
+
+.ide-body pre { 
+  margin: 0;
+  white-space: pre-wrap; 
+  word-wrap: break-word;
+}
+
+.raw-code-stream {
+  font-size: 13px; 
+  line-height: 1.6; 
+  color: #ced6e2;
+  font-weight: 500;
+}
+
+/* ===================================================
+   🧱 TECHNOLOGY BADGE PILL WALL (INTERACTIVE HOVER MAP)
+   =================================================== */
+.toolkit-desc { font-size: 14.5px; color: var(--text); margin-bottom: 24px !important; }
+.tech-badge-wall { display: flex; flex-wrap: wrap; gap: 12px; }
+
 .tech-badge-pill {
   display: inline-flex;
   align-items: center;
   gap: 10px;
   padding: 10px 18px;
-  background: rgba(255, 255, 255, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.7);
   border-radius: 16px;
-  cursor: default;
-  user-select: none;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.01);
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: 
+    background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+    border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+    box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.badge-name {
-  font-size: 14px;
-  font-weight: 600;
-  color: #111115;
+.tech-badge-pill:hover,
+.tech-badge-active {
+  border-color: var(--pill-hover-color) !important;
+  background-color: var(--code-bg);
+  box-shadow: 0 10px 25px var(--pill-hover-glow), inset 0 0 10px var(--pill-hover-glow) !important;
 }
 
-/* Interactive SVG Icon Setup */
-.badge-icon-wrap {
-  display: flex;
-  align-items: center;
-  font-size: 16px;
-  color: rgba(0, 0, 0, 0.7);
-  transition: color 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+.badge-icon-wrap { display: flex; align-items: center; font-size: 18px; color: var(--icon-brand-color); }
+.badge-name { font-size: 13.5px; font-weight: 700; color: var(--text-h); }
+
+/* ===================================================
+   ☀️ HIGH-CONTRAST LIGHT THEME ADAPTATION OVERRIDES
+   =================================================== */
+:root[data-theme="light"] .pipeline-visual-card {
+  background: var(--social-bg);
+  border-color: var(--border);
 }
 
-/* Hover Action Overrides mapped cleanly */
-.tech-badge-pill:hover {
-  background: #ffffff;
-}
-.tech-badge-pill:hover .badge-icon-wrap {
-  color: var(--icon-brand-color); /* Activates native framework brand colored light */
-  transform: scale(1.2); /* Icon scale spring action */
+:root[data-theme="light"] .pipeline-connector-line {
+  background: rgba(0, 0, 0, 0.08) !important;
 }
 
-/* Responsive breakdowns */
-@media (max-width: 850px) {
-  .about-section {
-    padding: 96px 18px;
+:root[data-theme="light"] .pipeline-pulse-dot {
+  background: linear-gradient(90deg, transparent, var(--accent)) !important;
+}
+
+:root[data-theme="light"] .pipeline-node {
+  background: #ffffff !important;
+  border-color: var(--border) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+:root[data-theme="light"] .node-figma { color: #e03e15; }
+:root[data-theme="light"] .node-frontend { color: #024680; }
+:root[data-theme="light"] .node-backend { color: #e11d12; }
+:root[data-theme="light"] .node-database { color: #244d6d; }
+
+:root[data-theme="light"] .pipeline-node:hover {
+  border-color: var(--accent) !important;
+  box-shadow: 0 8px 20px var(--accent-glow) !important;
+}
+
+:root[data-theme="light"] .node-caption {
+  color: var(--text-h) !important;
+  opacity: 0.8;
+}
+
+:root[data-theme="light"] .pipeline-terminal-terminal {
+  background: rgba(15, 20, 30, 0.95) !important;
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+:root[data-theme="light"] .term-text-title {
+  color: #8e9aa8 !important;
+  opacity: 0.8;
+}
+
+:root[data-theme="light"] .log-line-item.type-success { color: #34d399 !important; }
+:root[data-theme="light"] .log-line-item.type-process { color: #fbbf24 !important; }
+:root[data-theme="light"] .log-line-item.type-info { color: #60a5fa !important; }
+
+/* Light Theme Code View protection layer */
+:root[data-theme="light"] .about-code-ide {
+  background: #0d1016 !important; 
+  border-color: rgba(0, 0, 0, 0.15);
+}
+
+/* ===================================================
+   📱 RESPONSIVE MEDIA BREAKPOINTS
+   =================================================== */
+@media (max-width: 960px) {
+  .about-headline { margin-bottom: 40px; }
+  .narrative-card, .pipeline-visual-card, .about-code-ide, .toolkit-card {
+    grid-column: span 12;
   }
-
-  .about-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-  .about-card { padding: 32px; }
-  .about-ai-note { margin-top: 24px; }
+  .main-narrative-split { display: flex; flex-direction: column; gap: 32px; }
+  .about-code-ide { min-height: 280px; }
 }
 
 @media (max-width: 560px) {
-  .about-section {
-    padding: 78px 16px;
-  }
-
-  .about-headline {
-    font-size: clamp(30px, 9vw, 36px);
-    margin-bottom: 34px;
-  }
-
-  .about-card {
-    padding: 24px;
-    border-radius: 24px;
-  }
-
-  .section-sub-title {
-    font-size: 18px;
-  }
-
-  .about-card p {
-    font-size: 14.5px;
-  }
-
-  .about-ai-note {
-    padding: 14px 16px;
-  }
-
-  .tech-badge-pill {
-    flex: 1 1 135px;
-    justify-content: center;
-    padding: 10px 14px;
-  }
+  .about-section { padding: 80px 16px; }
+  .about-card { padding: 24px; border-radius: 20px; }
+  .about-headline { font-size: 28px; margin-bottom: 32px; }
+  .highlight-lead { font-size: 22px; }
+  .pipeline-flow-container { padding: 16px 0 28px 0; }
+  .pipeline-node { width: 38px; height: 38px; font-size: 16px; border-radius: 10px; }
+  .node-caption { font-size: 9px; bottom: -20px; }
 }

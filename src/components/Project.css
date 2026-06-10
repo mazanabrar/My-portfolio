@@ -10,53 +10,58 @@
   box-sizing: border-box;
 }
 
-/* Hyper Neon Ambient Orbs */
+/* 🪐 HYPER NEON AMBIENT ORBS */
 .neon-orb-blue, .neon-orb-violet {
   position: absolute;
   border-radius: 50%;
   filter: blur(140px);
-  opacity: 0.25;
+  opacity: 0.22;
   z-index: 1;
   pointer-events: none;
+  transition: background 0.4s ease;
 }
+
 .neon-orb-blue {
   width: 600px;
   height: 600px;
-  background: radial-gradient(circle, #0086ff 0%, rgba(255,255,255,0) 70%);
+  background: radial-gradient(circle, var(--accent-glow) 0%, rgba(0,0,0,0) 70%);
   top: 10%;
   left: -10%;
   animation: floatOrb 20s infinite alternate ease-in-out;
 }
+
 .neon-orb-violet {
   width: 550px;
   height: 550px;
-  background: radial-gradient(circle, #7000ff 0%, rgba(255,255,255,0) 70%);
+  background: radial-gradient(circle, #7000ff 0%, rgba(0,0,0,0) 70%);
   bottom: 15%;
   right: -5%;
   animation: floatOrb 25s infinite alternate-reverse ease-in-out;
 }
+
 @keyframes floatOrb {
   0% { transform: translateY(0px) scale(1); }
-  100% { transform: translateY(60px) scale(1.15); }
+  100% { transform: translateY(50px) scale(1.12); }
 }
 
 .projects-container {
   position: relative;
   z-index: 2;
   width: 100%;
-  max-width: 1000px;
+  max-width: 1140px; /* Increased slightly for better visual presentation */
 }
 
 .projects-headline {
   font-size: clamp(36px, 5vw, 54px);
   font-weight: 800;
   line-height: 1.1;
-  color: #000000;
-  letter-spacing: 0;
+  color: var(--text-h);
+  letter-spacing: -0.02em;
   margin-bottom: 70px;
+  transition: color 0.4s ease;
 }
 
-/* MAGAZINE BALANCED ASYMMETRIC GRID */
+/* 🧱 MAGAZINE BALANCED ASYMMETRIC GRID */
 .magazine-project-grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -64,49 +69,67 @@
   width: 100%;
 }
 
-/* Slot Formations - Standard boxes se chutkara */
-.slot-1 { grid-column: span 7; min-height: 440px; }
-.slot-2 { grid-column: span 5; min-height: 440px; margin-top: 40px; }
-.slot-3 { grid-column: span 6; min-height: 420px; margin-top: -20px; }
+/* Slot Formations - Visual layout weight adjust */
+.slot-1 { grid-column: span 7; }
+.slot-2 { grid-column: span 5; margin-top: 50px; }
+.slot-3 { grid-column: span 6; }
+.slot-4 { grid-column: span 6; } /* Added a 4th slot to complete the visual block if needed */
 
-/* HIGH END TRANSLUCENT MAGAZINE BENTO CARD */
+/* 🔮 HIGH END TRANSLUCENT MAGAZINE BENTO CARD (With Media Support) */
 .mag-card {
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  padding: 48px;
+  padding: 32px; /* Adjusted padding to give media viewport more space */
   border-radius: 32px;
   cursor: pointer;
-  
-  /* Thick Crystal Liquid Glass */
-  background: rgba(255, 255, 255, 0.15);
+  background: var(--social-bg);
   backdrop-filter: blur(30px) saturate(180%);
   -webkit-backdrop-filter: blur(30px) saturate(180%);
-  
-  border: 1px solid rgba(255, 255, 255, 0.65);
-  box-shadow: 
-    0 10px 40px rgba(0, 0, 0, 0.02),
-    inset 0 1px 2px rgba(255, 255, 255, 0.5);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
   overflow: hidden;
   transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Light beam overlay inside card */
+.mag-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--accent-border);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+}
+
+/* 🖼️ NEW: ULTRA-AUTHENTIC VISUAL PREVIEW CONTAINER */
+.mag-visual-wrapper {
+  position: relative;
+  width: 100%;
+  height: 240px; /* Perfect height for dashboard/app mockups */
+  background: var(--code-bg);
+  border-radius: 20px;
+  margin: 20px 0;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.project-visual-media {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center; /* Dashboard previews look stunning from top */
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Hover Physics: Web Preview scrolls or zooms smoothly */
+.mag-card:hover .project-visual-media {
+  transform: scale(1.05) translateY(-5px); /* Creates a mini scrolling web look */
+}
+
+/* Glass shine overlay running over the screenshot image */
 .glass-shine-layer {
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 50%);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 50%);
   pointer-events: none;
-  transition: transform 0.6s ease;
-}
-
-.mag-card:hover {
-  border-color: rgba(0, 134, 255, 0.5);
-  box-shadow: 0 30px 60px rgba(0, 134, 255, 0.08);
-}
-.mag-card:hover .glass-shine-layer {
-  transform: scale(1.4) rotate(10deg);
+  z-index: 2;
 }
 
 /* Header Row Elements */
@@ -115,75 +138,87 @@
   justify-content: space-between;
   align-items: center;
 }
+
 .mag-tag {
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: #0086ff;
-  background: rgba(0, 134, 255, 0.06);
+  color: var(--accent);
+  background: var(--accent-bg);
   padding: 6px 14px;
   border-radius: 30px;
+  border: 1px solid var(--accent-border);
 }
+
 .mag-year {
   font-family: var(--mono);
   font-size: 13px;
-  color: rgba(0, 0, 0, 0.4);
+  color: var(--text);
+  opacity: 0.6;
 }
 
 /* Body Context */
 .mag-title {
-  font-size: clamp(28px, 4vw, 36px);
+  font-size: clamp(24px, 3vw, 30px);
   font-weight: 800;
-  color: #000000;
-  margin: 24px 0 12px 0;
-  letter-spacing: 0;
+  color: var(--text-h);
+  margin: 16px 0 8px 0;
+  letter-spacing: -0.01em;
 }
+
 .mag-desc {
-  font-size: 16px;
+  font-size: 15px;
   line-height: 1.6;
-  color: rgba(0, 0, 0, 0.6);
+  color: var(--text);
   margin: 0;
+  opacity: 0.85;
 }
 
 /* Footer Control Elements */
 .mag-card-footer {
-  margin-top: 40px;
+  margin-top: auto; /* Pushes footer perfectly to bottom regardless of image height */
+  padding-top: 24px;
   display: flex;
   align-items: center;
-  gap: 14px;
+  justify-content: space-between;
 }
+
 .mag-action-text {
   font-size: 14px;
-  font-weight: 600;
-  color: #000000;
-  transition: color 0.3s;
+  font-weight: 700;
+  color: var(--text-h);
+  transition: color 0.3s ease;
 }
+
 .mag-btn-circle {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: #000000;
-  color: #ffffff;
+  background: var(--text-h);
+  color: var(--bg);
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Hover Physics for buttons */
-.mag-card:hover .mag-action-text { color: #0086ff; }
+.mag-card:hover .mag-action-text { color: var(--accent); }
 .mag-card:hover .mag-btn-circle {
-  background: #0086ff;
-  transform: rotate(45deg);
+  background: var(--accent);
+  color: #ffffff;
+  transform: rotate(45deg) scale(1.05);
 }
 
-/* DETAILED INTERACTIVE DRAWER PANEL SYSTEM */
+/* ===================================================
+   💎 DETAILED INTERACTIVE DRAWER PANEL SYSTEM (MODAL)
+   =================================================== */
 .modal-backdrop {
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0, 0, 0, 0.15);
+  background: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   z-index: 2000;
   display: flex;
   justify-content: flex-end;
@@ -191,18 +226,35 @@
 
 .detailed-glass-panel {
   width: 100%;
-  max-width: 550px;
+  max-width: 580px;
   height: 100vh;
-  background: rgba(255, 255, 255, 0.75);
+  background: var(--social-bg);
   backdrop-filter: blur(40px);
   -webkit-backdrop-filter: blur(40px);
-  border-left: 1px solid rgba(255, 255, 255, 0.6);
-  padding: 60px;
+  border-left: 1px solid var(--border);
+  padding: 50px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  box-shadow: -20px 0 60px rgba(0,0,0,0.05);
+  box-shadow: -20px 0 60px rgba(0, 0, 0, 0.15);
   overflow-y: auto;
+}
+
+/* NEW: CASE STUDY FULL-WIDTH VISUAL PREVIEW IN MODAL */
+.panel-hero-visual {
+  width: 100%;
+  height: 260px;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 30px;
+  border: 1px solid var(--border);
+  background: var(--code-bg);
+}
+
+.panel-hero-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .close-panel-btn {
@@ -211,138 +263,144 @@
   cursor: pointer;
   align-self: flex-start;
   padding: 0;
-  margin-bottom: 40px;
-  color: #000;
-  transition: transform 0.2s;
+  margin-bottom: 30px;
+  color: var(--text-h);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), color 0.25s ease;
 }
-.close-panel-btn:hover { transform: scale(1.15) rotate(90deg); }
+
+.close-panel-btn:hover { 
+  transform: scale(1.15) rotate(90deg); 
+  color: var(--accent);
+}
 
 .panel-tag {
   font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: #0086ff;
+  color: var(--accent);
   margin-bottom: 8px;
 }
+
 .panel-title {
-  font-size: 42px;
+  font-size: 36px;
   font-weight: 800;
-  color: #000;
-  letter-spacing: 0;
-  margin: 0 0 30px 0;
+  color: var(--text-h);
+  letter-spacing: -0.02em;
+  margin: 0 0 24px 0;
 }
 
 .panel-meta-row {
-  display: flex;
-  gap: 40px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
   margin-bottom: 30px;
 }
+
 .panel-meta-row span {
-  font-size: 12px;
-  color: rgba(0,0,0,0.4);
+  font-size: 11px;
+  color: var(--text);
   text-transform: uppercase;
-  font-weight: 600;
+  font-weight: 700;
+  opacity: 0.6;
+  display: block;
+  margin-bottom: 4px;
 }
-.panel-meta-row p { font-size: 15px; font-weight: 600; color: #000; margin: 4px 0 0 0; }
+
+.panel-meta-row p { font-size: 14px; font-weight: 600; color: var(--text-h); margin: 0; }
+
+/* NEW: LIVE ACTION LINKS INSIDE DRAWER MODULE */
+.panel-action-links {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 30px;
+}
+
+.panel-btn-primary, .panel-btn-secondary {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.panel-btn-primary {
+  background: var(--accent);
+  color: #ffffff;
+}
+.panel-btn-primary:hover {
+  box-shadow: 0 8px 20px var(--accent-glow);
+  transform: translateY(-2px);
+}
+
+.panel-btn-secondary {
+  background: var(--code-bg);
+  color: var(--text-h);
+  border: 1px solid var(--border);
+}
+.panel-btn-secondary:hover {
+  background: var(--border);
+  transform: translateY(-2px);
+}
 
 .panel-divider {
   border: none;
-  border-top: 1px solid rgba(0,0,0,0.08);
+  border-top: 1px solid var(--border);
   margin-bottom: 30px;
 }
 
-.panel-body h3 { font-size: 16px; font-weight: 700; color: #000; margin: 0 0 12px 0; text-transform: uppercase; letter-spacing: 0.02em; }
-.panel-body p { font-size: 16px; line-height: 1.6; color: rgba(0,0,0,0.7); margin-bottom: 40px; }
+.panel-body h3 { 
+  font-size: 14px; 
+  font-weight: 700; 
+  color: var(--text-h); 
+  margin: 0 0 12px 0; 
+  text-transform: uppercase; 
+  letter-spacing: 0.05em; 
+}
 
-.panel-tech-wrap { display: flex; flex-wrap: wrap; gap: 8px; }
+.panel-body p { 
+  font-size: 15px; 
+  line-height: 1.65; 
+  color: var(--text); 
+  margin-bottom: 34px; 
+}
+
+.panel-tech-wrap { display: flex; flex-wrap: wrap; gap: 10px; }
+
 .panel-tech-pill {
-  background: rgba(0,0,0,0.05);
-  color: #000;
+  background: var(--code-bg);
+  color: var(--text-h);
+  border: 1px solid var(--border);
   padding: 6px 14px;
   border-radius: 20px;
   font-size: 13px;
   font-weight: 600;
 }
 
-/* RESPONSIVE LAYOUT CLEANUP */
+/* 📱 RESPONSIVE LAYOUT CLEANUP */
 @media (max-width: 900px) {
   .projects-section { padding: 96px 18px; }
   .magazine-project-grid { grid-template-columns: 1fr; gap: 24px; }
-  .slot-1, .slot-2, .slot-3 { grid-column: span 1; margin-top: 0; min-height: auto; }
+  .slot-1, .slot-2, .slot-3, .slot-4 { grid-column: span 1; margin-top: 0; }
   .detailed-glass-panel { padding: 40px; }
 }
 
 @media (max-width: 560px) {
-  .projects-section {
-    padding: 78px 16px;
-  }
-
-  .projects-headline {
-    font-size: clamp(30px, 9vw, 38px);
-    margin-bottom: 36px;
-  }
-
-  .mag-card {
-    padding: 26px;
-    border-radius: 24px;
-  }
-
-  .mag-card-header {
-    align-items: flex-start;
-    gap: 12px;
-  }
-
-  .mag-tag {
-    max-width: 78%;
-    line-height: 1.35;
-    border-radius: 18px;
-  }
-
-  .mag-title {
-    font-size: 27px;
-  }
-
-  .mag-desc {
-    font-size: 14.5px;
-  }
-
-  .mag-card-footer {
-    margin-top: 32px;
-  }
-
-  .mag-action-text {
-    font-size: 13px;
-  }
-
-  .mag-btn-circle {
-    width: 40px;
-    height: 40px;
-    flex: 0 0 40px;
-  }
-
-  .modal-backdrop {
-    align-items: flex-end;
-  }
-
-  .detailed-glass-panel {
-    max-width: none;
-    height: 88svh;
-    padding: 28px 22px 32px;
-    border-left: 0;
-    border-radius: 28px 28px 0 0;
-  }
-
-  .close-panel-btn {
-    margin-bottom: 26px;
-  }
-
-  .panel-title {
-    font-size: 32px;
-  }
-
-  .panel-meta-row {
-    flex-direction: column;
-    gap: 16px;
-  }
+  .mag-card { padding: 24px; border-radius: 24px; }
+  .mag-visual-wrapper { height: 180px; margin: 16px 0; }
+  .modal-backdrop { align-items: flex-end; }
+  .detailed-glass-panel { height: 88svh; padding: 24px 20px; border-radius: 28px 28px 0 0; border-top: 1px solid var(--border); }
+  .panel-hero-visual { height: 180px; margin-bottom: 20px; }
+  .panel-title { font-size: 28px; }
+  .panel-meta-row { grid-template-columns: 1fr; gap: 14px; }
+  .panel-action-links { flex-direction: column; gap: 10px; }
 }

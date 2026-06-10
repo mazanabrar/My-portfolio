@@ -34,8 +34,44 @@ function Hero() {
 
   return (
     <section className="hero-section" id="hero">
-      {/* High-End Spatial Background Matrix Elements */}
-      <div className="hero-grid-overlay"></div>
+      {/* 📡 HIGH-END SPATIAL TELECOM ANIMATION NETWORK (BACKGROUND CORE) */}
+      <div className="telecom-network-canvas">
+        {/* Cyber Tech Matrix Grid */}
+        <div className="hero-grid-overlay"></div>
+        
+        {/* Tower Node Alpha (Main Signal Origin) */}
+        <div className="telecom-tower tower-alpha">
+          <div className="tower-core"></div>
+          <div className="signal-wave wave-1"></div>
+          <div className="signal-wave wave-2"></div>
+          <div className="signal-wave wave-3"></div>
+        </div>
+
+        {/* Tower Node Beta (Data Receiver Hub) */}
+        <div className="telecom-tower tower-beta">
+          <div className="tower-core"></div>
+          <div className="signal-wave wave-1"></div>
+          <div className="signal-wave wave-2"></div>
+        </div>
+
+        {/* Dynamic Connected Telemetry Signal Paths */}
+        <div className="telemetry-pipe horizontal-pipe-1">
+          <div className="data-pulse-packet"></div>
+        </div>
+        <div className="telemetry-pipe horizontal-pipe-2">
+          <div className="data-pulse-packet velocity-fast"></div>
+        </div>
+        <div className="telemetry-pipe vertical-pipe-1">
+          <div className="data-pulse-packet velocity-slow"></div>
+        </div>
+
+        {/* Floating Wireless Data Nodes */}
+        <div className="wireless-node node-pos-1"><span className="node-ping"></span></div>
+        <div className="wireless-node node-pos-2"><span className="node-ping"></span></div>
+        <div className="wireless-node node-pos-3"><span className="node-ping"></span></div>
+      </div>
+
+      {/* Local Ambient Glow Layer */}
       <div className="hero-ambient-glow"></div>
 
       <motion.div 
@@ -44,11 +80,10 @@ function Hero() {
         initial="hidden"
         animate="visible"
       >
-        
-        
         <motion.h1 variants={itemVariants}>
           Hello, I'm <span className="highlight-blue">Mazan Abrar</span>
         </motion.h1>
+        
         <motion.p className="eyebrow hero-eyebrow" variants={itemVariants}>
            Flutter Expert | Mobile Apps | UI/UX | Full Stack Developer
         </motion.p>
@@ -82,7 +117,6 @@ function Hero() {
       >
         <div className="hero-image-frame">
           <img className="me-image" src="/me.png" alt="Muhammad Mazan Ibrar" />
-          {/* Arc Rings now live as isolated elements to allow absolute physics handling */}
           <div className="arc-ring ring-left"></div>
           <div className="arc-ring ring-right"></div>
         </div>

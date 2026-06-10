@@ -1,93 +1,164 @@
-
-
-
-
 html {
   scroll-behavior: smooth; 
 }
 
+/* 🧱 MODULAR SECTIONS CONFIGURATION */
 .section {
-  padding: 72px 32px;
+  position: relative;
+  padding: 80px 32px;
   border-bottom: 1px solid var(--border);
+  text-align: left;
+  background-color: transparent;
+  /* Smooth color transition when toggling modes */
+  transition: padding 0.3s ease, border-color 0.4s ease;
 }
 
 .section > p,
 .project-card p {
   max-width: 660px;
   line-height: 1.7;
-}
-
-
-
-.button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 44px;
-  padding: 0 18px;
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  font-weight: 700;
-}
-
-
-
-.button.secondary {
-  background: var(--social-bg);
-}
-
-.section {
-  text-align: left;
+  color: var(--text);
+  transition: color 0.4s ease;
 }
 
 .section h2 {
   margin-top: 8px;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
+  letter-spacing: -0.01em;
 }
 
+/* 💎 ULTRAPREMIUM CTA BUTTON ARCHITECTURE */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 0 22px;
+  border: 1px solid var(--border);
+  border-radius: 10px; /* Thoda curved for a modern app-style layout */
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--text-h);
+  background: var(--bg);
+  box-shadow: var(--shadow);
+  /* Butter smooth multi-property animation core */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Primary Accent Action Button Hook */
+.button:not(.secondary) {
+  background: var(--accent);
+  color: #ffffff; /* Universal light text on active primary button */
+  border-color: transparent;
+}
+
+.button:not(.secondary):hover {
+  transform: translateY(-2px);
+  opacity: 0.92;
+  box-shadow: 0 12px 24px var(--accent-glow);
+}
+
+/* Secondary Translucent Soft Action Button Hook */
+.button.secondary {
+  background: var(--social-bg);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.button.secondary:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-border);
+  background: var(--accent-bg);
+  color: var(--accent);
+}
+
+/* 🕸️ HIGH-END BENTO STYLE GRIDS ENGINE */
 .skill-list,
 .project-grid {
   display: grid;
-  gap: 14px;
-  margin-top: 28px;
+  gap: 16px;
+  margin-top: 32px;
 }
 
+/* Skills Badges Grid Control */
 .skill-list {
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
 }
 
 .skill-list span,
 .project-card {
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: 14px; /* Soft premium curvature */
   background: var(--social-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: var(--shadow);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Interactive Badge Lift Aura */
 .skill-list span {
-  padding: 14px 16px;
+  padding: 16px;
   color: var(--text-h);
   font-weight: 600;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+.skill-list span:hover {
+  transform: translateY(-4px) scale(1.02);
+  border-color: var(--accent-border);
+  background: var(--accent-bg);
+  color: var(--accent);
+}
+
+/* Work Engineering Grid Control */
 .project-grid {
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 }
 
 .project-card {
-  padding: 22px;
+  padding: 26px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--accent-border);
+  background: var(--accent-bg);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
 }
 
 .project-card h3 {
-  margin: 0 0 10px;
+  margin: 0 0 12px;
   color: var(--text-h);
+  font-size: 1.25rem;
+  letter-spacing: -0.01em;
+  transition: color 0.4s ease;
 }
 
+/* Footer Section Context Overlays */
 .contact-section .button {
-  margin-top: 24px;
+  margin-top: 28px;
 }
 
+/* 📱 SEAMLESS RESPONSIVE FLUIDITY RUNTIME */
 @media (max-width: 760px) {
   .section {
-    padding: 48px 20px;
+    padding: 56px 20px;
+  }
+  
+  .project-grid {
+    grid-template-columns: 1fr; /* Single column layout for perfect mobile reading */
+  }
+  
+  .button {
+    width: 100%; /* Better thumb-reach tap zones on mobile devices */
   }
 }

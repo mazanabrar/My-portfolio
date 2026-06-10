@@ -1,4 +1,6 @@
-/* Skills Section Main Canvas Layout */
+/* ===================================================
+   🪐 BASE CANVAS & MATRIX CONFIG
+   =================================================== */
 .skills-section {
   position: relative;
   padding: 140px 24px;
@@ -6,121 +8,251 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: transparent !important; /* Global index animated blurs pass perfectly through here */
+  background: transparent !important;
   box-sizing: border-box;
 }
 
-/* Central Alignment Frame */
 .skills-container {
   width: 100%;
-  max-width: 960px;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
-/* Typography Editorial Settings */
 .skills-headline {
-  font-size: clamp(32px, 5vw, 48px);
+  font-size: clamp(32px, 5vw, 46px);
   font-weight: 800;
   line-height: 1.15;
-  color: #000000;
-  letter-spacing: 0;
+  color: var(--text-h);
+  letter-spacing: -0.02em;
   max-width: 800px;
-  margin-bottom: 50px;
+  margin-bottom: 55px;
+  transition: color 0.4s ease;
 }
 
-/* Grid layout to stack the cascading elements */
-.skills-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
+.skills-split-layout {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 40px;
+  align-items: flex-start;
   width: 100%;
 }
 
-/* Premium Transparent Liquid Glass Pill Elements */
+.skills-left-grid {
+  grid-column: span 7;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.skills-visualizer-panel {
+  grid-column: span 5;
+}
+
+/* ===================================================
+   🧪 LIQUID GLASS PILLS WITH DYNAMIC GLOW
+   =================================================== */
 .skill-glass-pill {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
-  padding: 14px 28px;
-  color: #000000; /* Fixed standard text state */
-  
-  /* High-end glass configuration */
-  background-color: rgba(255, 255, 255, 0.35);
+  gap: 14px;
+  padding: 14px 24px;
+  color: var(--text-h);
+  background-color: var(--social-bg);
   backdrop-filter: blur(20px) saturate(160%);
   -webkit-backdrop-filter: blur(20px) saturate(160%);
-  
-  /* Specular reflection border line */
-  border: 1px solid rgba(255, 255, 255, 0.65);
-  border-radius: 40px;
-  
+  border: 1px solid var(--border);
+  border-radius: 20px;
   cursor: pointer;
   user-select: none;
-  
-  /* Dual shadows for layered elevation tracking */
-  box-shadow: 
-    0 4px 20px rgba(0, 0, 0, 0.01),
-    0 10px 20px rgba(0, 0, 0, 0.02),
-    inset 0 1px 1px rgba(255, 255, 255, 0.5);
-    
+  box-shadow: var(--shadow);
   transition: 
-    background-color 0.3s cubic-bezier(0.25, 1, 0.5, 1), 
-    border-color 0.3s cubic-bezier(0.25, 1, 0.5, 1), 
-    box-shadow 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+    border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+    box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    color 0.2s ease;
 }
 
-/* Interactive Status Tracking Dot */
+.skill-pill-icon {
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease;
+}
+
+.skill-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: inherit;
+  letter-spacing: -0.01em;
+}
+
 .skill-dot {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background-color: #0086ff; /* Matches your core CV blue indicator */
-  transition: background-color 0.2s ease;
+  background-color: transparent;
+  transition: background-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-/* Clean Typography Inheritance Setup */
-.skill-name {
-  font-size: 16px;
-  font-weight: 600;
-  color: inherit; /* Direct proxy connection to mirror parent shifts */
-  letter-spacing: -0.01em;
-  transition: color 0.2s ease;
+/* 🪐 INTERACTIONS & ACTIVE COMPILATION SHIELDS */
+.skill-glass-pill:hover,
+.pill-active-state {
+  background-color: var(--social-bg) !important;
+  border-color: var(--hover-brand-color) !important;
+  /* Premium Soft Floating Color Footprint Glow */
+  box-shadow: 0 12px 30px var(--hover-glow-footprint), inset 0 0 12px var(--hover-glow-footprint);
 }
 
-/* INTERACTIVE RESPONSIVE OVERRIDES (When framer activates background flip) */
-.skill-glass-pill:hover {
+.skill-glass-pill:hover .skill-pill-icon,
+.pill-active-state .skill-pill-icon {
+  transform: scale(1.15);
+  /* Optional: adds a soft drop glow on the brand icon itself */
+  filter: drop-shadow(0 0 6px var(--hover-brand-color));
+}
+
+.skill-glass-pill:hover .skill-dot,
+.pill-active-state .skill-dot {
+  background-color: var(--hover-brand-color) !important;
+  transform: scale(1.2);
+  box-shadow: 0 0 10px var(--hover-brand-color);
+}
+
+/* ===================================================
+   💻 INTERACTIVE IDE SHELL WITH AMBIENT GLOW BOUNDS
+   =================================================== */
+.skills-visualizer-panel {
+  position: relative;
+  background: rgba(13, 16, 23, 0.85); 
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  font-family: var(--mono, 'Courier New', monospace);
+  transition: border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Panel tracking glows when node transforms */
+.skills-visualizer-panel:hover,
+.skills-visualizer-panel {
+  border-color: rgba(255, 255, 255, 0.12);
+  /* Drops an inner and outer subtle breathing neon aura matched to active node color */
   box-shadow: 
-    0 12px 28px rgba(12, 60, 255, 0.25), /* Soft ambient glow colorized with your accent tint */
-    0 4px 10px rgba(0, 0, 0, 0.03);
+    0 20px 40px rgba(0, 0, 0, 0.2), 
+    0 0 35px -10px var(--active-accent-color);
 }
 
-/* Fixes the text inversion completely from parent inherit failure bug */
-.skill-glass-pill:hover .skill-name {
-  color: #ffffff !important; /* Absolute crispy clean white on active hover state */
+.compiler-header {
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 14px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
 }
 
-/* Dot adjustments on active hover status tracking */
-.skill-glass-pill:hover .skill-dot {
-  background-color: #ffffff !important; /* Converts safely into white core indicator */
+.compiler-dots { display: flex; gap: 8px; }
+.compiler-dots span { width: 9px; height: 9px; border-radius: 50%; }
+.dot-c-1 { background: #ff5f56; }
+.dot-c-2 { background: #ffbd2e; }
+.dot-c-3 { background: #27c93f; }
+
+.compiler-title {
+  margin-left: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #8e9aa8;
 }
 
-/* Responsive optimization metrics */
+.compiler-body {
+  padding: 26px 24px;
+  min-height: 210px;
+  display: flex;
+  flex-direction: column;
+}
+
+.compiler-line {
+  font-size: 13px;
+  line-height: 1.7;
+  color: #9faab5;
+  margin-bottom: 6px;
+}
+
+.compiler-divider-line {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.06);
+  margin: 12px 0;
+}
+
+/* Color Tokens maps */
+.term-cyan { color: #06b6d4; font-weight: 600; }
+.term-green { color: #10b981; font-weight: 600; }
+.term-purple { color: #a855f7; }
+.term-yellow { color: #f59e0b; font-weight: 600; }
+.term-orange { color: #f97316; }
+.term-white { color: #ffffff; font-weight: 600; }
+
+.terminal-blinker {
+  animation: blink 1s step-end infinite;
+  color: var(--active-accent-color);
+  text-shadow: 0 0 8px var(--active-accent-color);
+}
+
+@keyframes blink {
+  from, to { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* ===================================================
+   ☀️ LIGHT THEME ADAPTATION GLOW CONTROL
+   =================================================== */
+:root[data-theme="light"] .skill-glass-pill {
+  background-color: #ffffff;
+  border-color: rgba(0, 0, 0, 0.06);
+}
+
+:root[data-theme="light"] .skill-glass-pill:hover,
+:root[data-theme="light"] .pill-active-state {
+  background-color: #ffffff !important;
+  border-color: var(--hover-brand-color) !important;
+  /* Light mode glow shifted to lower saturation layer to maintain clean contrast balance */
+  box-shadow: 0 10px 25px var(--hover-glow-footprint);
+}
+
+:root[data-theme="light"] .skills-visualizer-panel {
+  background: rgba(15, 20, 30, 0.96) !important; 
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.15), 
+    0 0 30px -12px var(--active-accent-color);
+}
+
+:root[data-theme="light"] .compiler-header {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* ===================================================
+   📱 RESPONSIVE ADJUSTMENTS
+   =================================================== */
+@media (max-width: 960px) {
+  .skills-split-layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .skills-left-grid, .skills-visualizer-panel {
+    grid-column: span 12;
+  }
+  .compiler-body {
+    min-height: auto;
+  }
+}
+
 @media (max-width: 550px) {
-  .skills-section {
-    padding: 78px 16px;
-  }
-
-  .skills-headline {
-    font-size: clamp(30px, 9vw, 36px);
-    margin-bottom: 34px;
-  }
-
-  .skills-grid {
-    gap: 12px;
-  }
-
-  .skill-glass-pill {
-    padding: 12px 22px;
-    width: 100%; /* Spreads comfortably on narrow screen layouts */
-    justify-content: flex-start;
-  }
+  .skills-section { padding: 78px 16px; }
+  .skills-headline { font-size: 30px; margin-bottom: 34px; }
+  .skills-left-grid { gap: 10px; }
+  .skill-glass-pill { padding: 12px 20px; width: 100%; justify-content: flex-start; border-radius: 14px; }
+  .skills-visualizer-panel { border-radius: 18px; }
+  .compiler-body { padding: 18px 16px; }
 }

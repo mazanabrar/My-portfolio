@@ -11,20 +11,19 @@
   box-sizing: border-box;
 }
 
-/* FOOTER NEON RADIAL ORB
-   Pura layout end hote hue aik massive neon base par rest karega jo pure glass board ko backlighting dega.
-*/
+/* 🪐 FOOTER NEON RADIAL ORB (Dynamic Backlighting Core) */
 .contact-neon-core {
   position: absolute;
   width: 700px;
   height: 400px;
-  background: radial-gradient(ellipse at center, rgba(0, 134, 255, 0.18) 0%, rgba(12, 60, 255, 0) 70%);
+  background: radial-gradient(ellipse at center, var(--accent-glow) 0%, rgba(0, 0, 0, 0) 70%);
   filter: blur(120px);
   bottom: -100px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 1;
   pointer-events: none;
+  transition: background 0.4s ease;
 }
 
 /* Centralizing Alignment Controller */
@@ -36,30 +35,30 @@
   margin: 0 auto;
 }
 
-/* Master Liquid Frosted Glass Box */
+/* 🔮 Master Liquid Frosted Glass Box */
 .contact-glass-card {
   padding: 60px;
   border-radius: 40px;
-  background: rgba(255, 255, 255, 0.2);
+  background: var(--social-bg);
   backdrop-filter: blur(30px) saturate(160%);
   -webkit-backdrop-filter: blur(30px) saturate(160%);
   
-  border: 1px solid rgba(255, 255, 255, 0.65);
-  box-shadow: 
-    0 10px 40px rgba(0, 0, 0, 0.02),
-    inset 0 1px 2px rgba(255, 255, 255, 0.5);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  transition: background-color 0.4s ease, border-color 0.4s ease;
 }
 
-/* Availability Pulse Row */
+/* 🟢 Availability Pulse Row Badge */
 .status-badge-row {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  background-color: rgba(255, 255, 255, 0.6);
-  border: 1px solid rgba(0, 0, 0, 0.04);
+  background-color: var(--code-bg);
+  border: 1px solid var(--border);
   padding: 8px 18px;
   border-radius: 30px;
   margin-bottom: 32px;
+  transition: background-color 0.4s ease, border-color 0.4s ease;
 }
 
 .pulse-green-dot {
@@ -69,15 +68,18 @@
   border-radius: 50%;
   position: relative;
 }
+
 .pulse-green-dot::after {
   content: '';
   position: absolute;
+  top: 0; left: 0;
   width: 100%;
   height: 100%;
   background-color: #10b981;
   border-radius: 50%;
   animation: pulseRadar 1.8s infinite ease-in-out;
 }
+
 @keyframes pulseRadar {
   0% { transform: scale(1); opacity: 0.8; }
   100% { transform: scale(2.5); opacity: 0; }
@@ -85,8 +87,9 @@
 
 .status-text {
   font-size: 13px;
-  font-weight: 600;
-  color: #000000;
+  font-weight: 700;
+  color: var(--text-h);
+  transition: color 0.4s ease;
 }
 
 .contact-eyebrow {
@@ -97,44 +100,51 @@
   font-size: clamp(32px, 5vw, 44px);
   font-weight: 800;
   line-height: 1.15;
-  color: #000000;
-  letter-spacing: 0;
+  color: var(--text-h);
+  letter-spacing: -0.02em;
   margin-bottom: 16px;
+  transition: color 0.4s ease;
 }
 
 .contact-subtext {
   font-size: 16px;
-  line-height: 1.6;
-  color: rgba(0, 0, 0, 0.6);
+  line-height: 1.65;
+  color: var(--text);
   max-width: 600px;
   margin-bottom: 40px;
+  transition: color 0.4s ease;
 }
 
-/* Solid Black Core High-Contrast Button */
+/* 💎 Dynamic Core High-Contrast Button */
 .contact-primary-btn {
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  background-color: #000000; /* Pure black anchors the layout */
-  color: #ffffff;
+  background-color: var(--text-h); /* Inverts cleanly between black and stark white */
+  color: var(--bg);
   text-decoration: none;
   padding: 16px 36px;
   border-radius: 40px;
   font-size: 15px;
-  font-weight: 600;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-  transition: background-color 0.3s, box-shadow 0.3s;
+  font-weight: 700;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .contact-primary-btn:hover {
-  background-color: #0c3cff; /* Flips cleanly into your CV signature blue on hover */
-  box-shadow: 0 15px 30px rgba(0, 134, 255, 0.3);
+  background-color: var(--accent); 
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px var(--accent-glow);
 }
 
 .contact-divider {
   border: none;
-  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  border-top: 1px solid var(--border);
   margin: 48px 0 32px 0;
+  transition: border-color 0.4s ease;
 }
 
 /* Meta Block Elements (Location and Socials) */
@@ -147,15 +157,17 @@
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: rgba(0, 0, 0, 0.4);
+  letter-spacing: 0.06em;
+  color: var(--text);
+  opacity: 0.7;
 }
 
 .meta-block p {
   font-size: 15px;
   font-weight: 600;
-  color: #000000;
+  color: var(--text-h);
   margin: 6px 0 0 0;
+  transition: color 0.4s ease;
 }
 
 .social-links-grid {
@@ -167,10 +179,10 @@
 .social-links-grid a {
   font-size: 15px;
   font-weight: 600;
-  color: #000000;
+  color: var(--text-h);
   text-decoration: none;
   position: relative;
-  transition: color 0.2s;
+  transition: color 0.25s ease;
 }
 
 .social-links-grid a::after {
@@ -178,16 +190,16 @@
   position: absolute;
   width: 100%;
   transform: scaleX(0);
-  height: 1.5px;
+  height: 2px;
   bottom: -2px;
   left: 0;
-  background-color: #0086ff;
+  background-color: var(--accent);
   transform-origin: bottom right;
-  transition: transform 0.25s ease-out;
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-links-grid a:hover {
-  color: #0086ff;
+  color: var(--accent);
 }
 
 .social-links-grid a:hover::after {
@@ -195,11 +207,11 @@
   transform-origin: bottom left;
 }
 
-/* Real-time Form Layout Structure */
+/* 📝 Real-time Form Layout Structure */
 .contact-realtime-form {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 18px;
   width: 100%;
   margin: 28px 0 12px 0;
 }
@@ -207,47 +219,49 @@
 .form-group-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 16px;
+  gap: 18px;
 }
 
 @media (max-width: 600px) {
   .form-group-row {
     grid-template-columns: 1fr;
+    gap: 18px;
   }
 }
 
-/* Premium Minimalist Glass Input Styling */
+/* ⚡ PREMIUM MINIMALIST GLASS INPUT ARCHITECTURE */
 .contact-input-field {
   width: 100%;
-  background: rgba(0, 0, 0, 0.02); /* Clean subtle inset look */
+  background: var(--code-bg); /* Fluid dynamic inset variable mesh background */
   border: 1px solid var(--border);
   border-radius: 12px;
-  padding: 14px 18px;
+  padding: 15px 18px;
   font-size: 15px;
   font-family: var(--sans);
   color: var(--text-h);
   outline: none;
-  transition: all 0.25s ease-in-out;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Focused Glow Match to Your Accent Blue Color */
 .contact-input-field:focus {
-  background: #ffffff;
+  background: var(--bg); /* Inverts cleanly to deep black or flat pure slate */
   border-color: var(--accent);
-  box-shadow: 0 0 0 4px var(--accent-bg);
+  box-shadow: 0 0 0 4px var(--accent-glow);
 }
 
 .textarea-field {
   resize: vertical;
-  min-height: 110px;
+  min-height: 120px;
 }
 
-/* Small Screens Responsive Mechanics */
+/* 📱 Small Screens Responsive Mechanics */
 @media (max-width: 650px) {
   .contact-section { padding: 78px 16px; }
-  .contact-glass-card { padding: 28px; border-radius: 28px; }
+  .contact-glass-card { padding: 32px 24px; border-radius: 28px; }
   .contact-footer-meta { flex-direction: column; gap: 24px; }
   .contact-primary-btn { width: 100%; justify-content: center; }
+  
   .status-badge-row {
     width: 100%;
     align-items: flex-start;
@@ -261,11 +275,12 @@
   }
   .social-links-grid {
     flex-wrap: wrap;
+    gap: 14px;
   }
 }
 
 @media (max-width: 380px) {
   .contact-glass-card {
-    padding: 24px 20px;
+    padding: 24px 18px;
   }
 }

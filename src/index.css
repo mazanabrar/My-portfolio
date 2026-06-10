@@ -1,26 +1,33 @@
-:root {
-  /* Colors extracted from Muhammad Mazan Ibrar - CV.jpg */
-  --bg: #f8f9fa;                 
-  --text: #4a4a4e;               
-  --text-h: #111115;             
-  --border: rgba(0, 0, 0, 0.06); 
-  --code-bg: #f4f3ec;            
+/* 🌍 GLOBAL THEME VARIABLES & SYSTEM DEFAULTS */
+:root,
+:root[data-theme='light'] {
+  /* Premium Light Mode Palette */
+  --bg: #f8fafc;                 /* Clean Slate Light */
+  --text: #475569;               /* Slate Gray text */
+  --text-h: #0f172a;             /* Deep Obsidian headings */
+  --border: rgba(15, 23, 42, 0.08); 
+  --code-bg: #f1f5f9;            
   
-  /* Signature CV Blue Accent Palette */
+  /* Signature Premium Blue Accent */
   --accent: #0086ff;             
-  --accent-bg: rgba(0, 134, 255, 0.08); 
-  --accent-border: rgba(0, 134, 255, 0.4);
+  --accent-bg: rgba(0, 134, 255, 0.06); 
+  --accent-border: rgba(0, 134, 255, 0.3);
   
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow: rgba(0, 0, 0, 0.04) 0 10px 30px, rgba(0, 0, 0, 0.02) 0 4px 12px;
+  --social-bg: rgba(255, 255, 255, 0.7);
+  --shadow: rgba(15, 23, 42, 0.04) 0 10px 30px, rgba(15, 23, 42, 0.02) 0 4px 12px;
+  
+  /* Background Blur Ambiance */
+  --blob-one: #0086ff;
+  --blob-two: #ff3c00;
+  --blob-opacity: 0.12;
 
-  /* Typography */
+  /* Typography Blueprint */
   --sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --heading: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --mono: ui-monospace, SFMono-Regular, Consolas, monospace;
 
   font: 18px/145% var(--sans);
-  letter-spacing: 0;
+  letter-spacing: -0.01em;
   color: var(--text);
   background: var(--bg);
   font-synthesis: none;
@@ -29,25 +36,33 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Responsive Font Size for Root */
+/* 🌗 ELITE DARK MODE ATTRIBUTES (Triggered dynamically by your Toggler) */
+:root[data-theme='dark'] {
+  /* Cinematic Obsidian Black Theme */
+  --bg: #030712;                 /* Ultra Deep Midnight Jet Black */
+  --text: #9ca3af;               /* Metallic Silver Muted text */
+  --text-h: #f9fafb;             /* Pure Stark White headings */
+  --border: rgba(255, 255, 255, 0.06); 
+  --code-bg: #111827;            
+  
+  /* Neon Electric Glow Accent */
+  --accent: #3b82f6;             
+  --accent-bg: rgba(59, 130, 246, 0.12); 
+  --accent-border: rgba(59, 130, 246, 0.5);
+  
+  --social-bg: rgba(17, 24, 39, 0.6); /* Translucent Glass Layer */
+  --shadow: rgba(0, 0, 0, 0.4) 0 20px 40px, rgba(0, 0, 0, 0.2) 0 8px 16px;
+  
+  /* Vivid Cyber Ambiance */
+  --blob-one: #2563eb;
+  --blob-two: #ea580c;
+  --blob-opacity: 0.22; /* High contrast glow on deep dark views */
+}
+
+/* Responsive Font Size for Screens */
 @media (max-width: 1024px) {
   :root {
     font-size: 16px;
-  }
-}
-
-/* Persistent clean layout even if user browser is on dark mode */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #f8f9fa;
-    --text: #4a4a4e;
-    --text-h: #111115;
-    --border: rgba(0, 0, 0, 0.06);
-    --code-bg: #f5f5f7;
-    --accent: #0086ff;
-    --accent-bg: rgba(0, 134, 255, 0.1);
-    --accent-border: rgba(0, 134, 255, 0.5);
-    --shadow: rgba(0, 0, 0, 0.04) 0 10px 30px, rgba(0, 0, 0, 0.02) 0 4px 12px;
   }
 }
 
@@ -56,6 +71,8 @@ body {
   background-color: var(--bg);
   position: relative;
   overflow-x: hidden;
+  /* Ultimate Professional Polish: Theme Switching Animation */
+  transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s ease;
 }
 
 *,
@@ -75,31 +92,42 @@ svg {
   max-width: 100%;
 }
 
-/* GLOBAL AMBIENT LIQUID BACKGROUND */
-body::before,
-body::after {
+/* 🌌 DESIGNER SPECIAL: SYSTEM-WIDE NOISE TEXTURE OVERLAY */
+body::before {
   content: "";
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(120px); 
-  opacity: 0.18;       
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  opacity: 0.015; /* Extremely subtle cinematic texture */
   pointer-events: none;
-  z-index: 0;
+  z-index: 9999;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
-body::before {
+/* 🪐 DYNAMIC GRAPHIC INTERACTION: AMBIENT LIQUID BACKGROUND BLOBS */
+.ambient-glow-left,
+.ambient-glow-right {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(140px); 
+  opacity: var(--blob-opacity);       
+  pointer-events: none;
+  z-index: 0;
+  transition: opacity 0.4s ease, background 0.4s ease;
+}
+
+.ambient-glow-right {
   width: 600px;
   height: 600px;
-  background: radial-gradient(circle, var(--accent) 0%, rgba(255,255,255,0) 70%);
+  background: radial-gradient(circle, var(--blob-one) 0%, rgba(255,255,255,0) 70%);
   top: -100px;
   right: -50px;
   animation: globalDrift 20s infinite alternate ease-in-out;
 }
 
-body::after {
+.ambient-glow-left {
   width: 700px;
   height: 700px;
-  background: radial-gradient(circle, #ff1e00 0%, rgba(255,255,255,0) 70%);
+  background: radial-gradient(circle, var(--blob-two) 0%, rgba(255,255,255,0) 70%);
   top: 700px;
   left: -150px;
   animation: globalDrift 25s infinite alternate-reverse ease-in-out;
@@ -107,7 +135,7 @@ body::after {
 
 @keyframes globalDrift {
   0% { transform: translateY(0px) translateX(0px) scale(1); }
-  100% { transform: translateY(60px) translateX(30px) scale(1.15); }
+  100% { transform: translateY(60px) translateX(30px) scale(1.12); }
 }
 
 #root {
@@ -122,79 +150,98 @@ body::after {
 /* CLEAN GLOBAL SECTIONS */
 .section, section {
   position: relative;
-  padding: 72px 32px;
+  padding: 80px 32px;
   border-bottom: 1px solid var(--border);
   text-align: left;
+  transition: border-color 0.4s ease;
 }
 
 h1, h2, h3 {
   font-family: var(--heading);
   color: var(--text-h);
   margin-top: 0;
+  transition: color 0.4s ease;
 }
 
 h1 {
-  font-size: 52px;
+  font-size: 56px;
   font-weight: 700;
   line-height: 1.1;
   margin-bottom: 24px;
+  letter-spacing: -0.02em;
 }
 
 h2 {
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 600;
   line-height: 130%;
   margin-bottom: 12px;
+  letter-spacing: -0.01em;
 }
 
 p { 
   margin: 0 0 16px 0; 
   line-height: 1.6; 
+  transition: color 0.4s ease;
 }
 
-/* Skills & Projects layout configurations */
+/* Skills & Projects Modern Grid Refinement */
 .skill-list, .project-grid { 
   display: grid; 
-  gap: 14px; 
-  margin-top: 28px; 
+  gap: 16px; 
+  margin-top: 32px; 
 }
 
 .skill-list { 
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); 
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
 }
 
 .skill-list span, .project-card { 
   border: 1px solid var(--border); 
-  border-radius: 8px; 
+  border-radius: 12px; 
   background: var(--social-bg); 
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Professional Designer Polish: Interactive Cards Hovers */
+.skill-list span:hover, .project-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent-border);
+  background: var(--accent-bg);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.06);
 }
 
 .skill-list span { 
-  padding: 14px 16px; 
+  padding: 16px; 
   color: var(--text-h); 
   font-weight: 600; 
+  text-align: center;
 }
 
 .project-grid { 
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
 }
 
 .project-card { 
-  padding: 22px; 
+  padding: 24px; 
 }
 
 .project-card h3 { 
-  margin: 0 0 10px; 
+  margin: 0 0 12px; 
   color: var(--text-h); 
 }
 
 /* Media Queries for Typography & Screen adjustments */
 @media (max-width: 1024px) {
-  h1 { font-size: 38px; margin-bottom: 16px; }
-  h2 { font-size: 20px; }
+  h1 { font-size: 42px; margin-bottom: 16px; }
+  h2 { font-size: 22px; }
+  .section, section { padding: 64px 24px; }
 }
 
 @media (max-width: 640px) {
-  body::before { width: 360px; height: 360px; top: -80px; right: -180px; }
-  body::after { width: 420px; height: 420px; top: 760px; left: -240px; }
+  .ambient-glow-right { width: 360px; height: 360px; top: -80px; right: -180px; }
+  .ambient-glow-left { width: 420px; height: 420px; top: 760px; left: -240px; }
 }
