@@ -1,43 +1,40 @@
 /* Container to fix the position and center it horizontally */
+/* Container to fix the position and center it horizontally */
 .site-header-container {
-  position: fixed;
-  top: 24px;
-  left: 0;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  
-  /* 🌟 Yeh line ab Bina kisi rukawat ke pooray page par sabse upar rahegi */
-  z-index: 99999 !important; 
-  
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  box-sizing: border-box;
-  padding: 0 20px;
+  position: fixed !important;
+  top: 24px !important;
+  left: 0 !important;
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important; /* 🌟 Pure page ke center mein lock rakhega */
+  z-index: 999999 !important; 
+  box-sizing: border-box !important;
+  padding: 0 20px !important;
 }
 
+/* Hyper-Transparent Premium Pill Shape (Controlled Width) */
 .site-header {
   display: flex !important;
   align-items: center !important;
   justify-content: space-between !important;
+  
+  /* 🌟 Width control setup - Ab full wide nahi hogi */
   width: 100% !important;
+  max-width: 620px !important; /* 🌟 Pill ka size 620px par freeze kar diya */
+  
   border-radius: 40px !important;
   padding: 8px 12px 8px 28px !important;
   
-  /* 🌟 Force hardware acceleration to fix live rendering */
+  /* GPU Hardware acceleration */
   transform: translateZ(0) !important;
   will-change: backdrop-filter, -webkit-backdrop-filter !important;
   
-  /* 🌟 Optimized Background tint & opacity for high-contrast live visibility */
+  /* Premium Glass Effects */
   background-color: rgba(255, 255, 255, 0.28) !important; 
-  
-  /* 🌟 Bulletproof Cross-Browser Heavy Blur */
   -webkit-backdrop-filter: blur(30px) saturate(210%) !important; 
   backdrop-filter: blur(30px) saturate(210%) !important; 
-  
-  /* 3D reflection border */
   border: 1px solid rgba(255, 255, 255, 0.6) !important; 
   
-  /* Deep 3D box shadow to simulate thick premium glass over the big text */
   box-shadow: 
     0 12px 32px rgba(0, 0, 0, 0.05),
     inset 0 1px 2px rgba(255, 255, 255, 0.5) !important;
