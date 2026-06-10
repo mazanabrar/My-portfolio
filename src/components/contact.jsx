@@ -1,8 +1,39 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
+import emailjs from '@emailjs/browser';
 import './Contact.css'; 
 
 function Contact() {
+  const form = useRef();
+  const [btnText, setBtnText] = useState("Send Message");
+  const [isSending, setIsSending] = useState(false);
+
+  // Real-time EmailJS handler
+  const sendEmail = (e) => {
+    e.preventDefault();
+    setIsSending(true);
+    setBtnText("Sending...");
+
+    // 🌟 Real Keys and Tokens Locked In
+    emailjs.sendForm(
+      'service_hmpwf6o', 
+      'template_9medhia', 
+      form.current, 
+      '_oqHL3MQrzBolhnAz'
+    )
+    .then((result) => {
+        console.log(result.text);
+        setBtnText("Message Sent! 🎉");
+        setIsSending(false);
+        form.current.reset(); // Form clear karne ke liye
+        setTimeout(() => setBtnText("Send Message"), 4000);
+    }, (error) => {
+        console.log(error.text);
+        setBtnText("Failed to send ❌");
+        setIsSending(false);
+        setTimeout(() => setBtnText("Send Message"), 4000);
+    });
+  };
   
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -40,7 +71,6 @@ function Contact() {
             <span className="status-text">Available for Freelance & Full-time Roles</span>
           </motion.div>
 
-          
           <motion.h2 className="contact-headline" variants={itemVariants}>
             Let’s build something useful together.
           </motion.h2>
@@ -50,21 +80,56 @@ function Contact() {
             and practical React application engineering. Drop a message to start.
           </motion.p>
 
-          {/* Premium Email Button CTA - Fully Functional */}
-          <motion.div variants={itemVariants} className="cta-wrapper">
-            <motion.a 
-              className="contact-primary-btn" 
-href="mailto:mazanibrar20@gmail.com?subject=Freelance%20Project%20Inquiry%20%E2%80%93%20Let%E2%80%99s%20Work%20Together"              whileHover={{ scale: 1.03, y: -4 }}
-              whileTap={{ scale: 0.98 }}
-              transition={{ type: "spring", stiffness: 300, damping: 12 }}
-            >
-              <span>Send Email</span>
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                <path d="M2.66666 3.33334H13.3333C14.0667 3.33334 14.6667 3.93334 14.6667 4.66668V11.3333C14.6667 12.0667 14.0667 12.6667 13.3333 12.6667H2.66666C1.93333 12.6667 1.33333 12.0667 1.33333 11.3333V4.66668C1.33333 3.93334 1.93333 3.33334 2.66666 3.33334Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M14.6667 4.66666L8 9.33333L1.33333 4.66666" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </motion.a>
-          </motion.div>
+          {/* 🌟 PREMIUM REAL-TIME INPUT FIELDS FORM */}
+          <form ref={form} onSubmit={sendEmail} className="contact-realtime-form">
+            <motion.div variants={itemVariants} className="form-group-row">
+              <input 
+                type="text" 
+                name="name" /* 👈 Dashboard ke {{name}} se align kar diya */
+                placeholder="Your Name" 
+                required 
+                className="contact-input-field"
+              />
+              <input 
+                type="email" 
+                name="email" /* 👈 Dashboard ke {{email}} se align kar diya */
+                placeholder="Your Email Address" 
+                required 
+                className="contact-input-field"
+              />
+            </motion.div>
+
+            <motion.div variants={itemVariants} className="form-group">
+              <textarea 
+                name="message" /* 👈 Matches Dashboard {{message}} */
+                placeholder="Tell me about your project, timeline, or inquiry..." 
+                rows="4" 
+                required 
+                className="contact-input-field textarea-field"
+              ></textarea>
+            </motion.div>
+
+            {/* Premium Button Dynamic CTA */}
+            <motion.div variants={itemVariants} className="cta-wrapper">
+              <motion.button 
+                type="submit"
+                disabled={isSending}
+                className="contact-primary-btn" 
+                style={{ border: 'none', cursor: isSending ? 'not-allowed' : 'pointer', width: '100%', justifyContent: 'center' }}
+                whileHover={isSending ? {} : { scale: 1.02, y: -2 }}
+                whileTap={isSending ? {} : { scale: 0.98 }}
+                transition={{ type: "spring", stiffness: 300, damping: 12 }}
+              >
+                <span>{btnText}</span>
+                {!isSending && (
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path d="M2.66666 3.33334H13.3333C14.0667 3.33334 14.6667 3.93334 14.6667 4.66668V11.3333C14.6667 12.0667 14.0667 12.6667 13.3333 12.6667H2.66666C1.93333 12.6667 1.33333 12.0667 1.33333 11.3333V4.66668C1.33333 3.93334 1.93333 3.33334 2.66666 3.33334Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M14.6667 4.66666L8 9.33333L1.33333 4.66666" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                )}
+              </motion.button>
+            </motion.div>
+          </form>
 
           <hr className="contact-divider" />
 
@@ -75,7 +140,6 @@ href="mailto:mazanibrar20@gmail.com?subject=Freelance%20Project%20Inquiry%20%E2%
               <p>Pakistan, PK</p>
             </div>
             
-            {/* Functional Call Block Added */}
             <div className="meta-block">
               <span>Direct Call</span>
               <p>

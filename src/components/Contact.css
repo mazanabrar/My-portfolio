@@ -195,6 +195,53 @@
   transform-origin: bottom left;
 }
 
+/* Real-time Form Layout Structure */
+.contact-realtime-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  margin: 28px 0 12px 0;
+}
+
+.form-group-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+@media (max-width: 600px) {
+  .form-group-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Premium Minimalist Glass Input Styling */
+.contact-input-field {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.02); /* Clean subtle inset look */
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px 18px;
+  font-size: 15px;
+  font-family: var(--sans);
+  color: var(--text-h);
+  outline: none;
+  transition: all 0.25s ease-in-out;
+}
+
+/* Focused Glow Match to Your Accent Blue Color */
+.contact-input-field:focus {
+  background: #ffffff;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px var(--accent-bg);
+}
+
+.textarea-field {
+  resize: vertical;
+  min-height: 110px;
+}
+
 /* Small Screens Responsive Mechanics */
 @media (max-width: 650px) {
   .contact-section { padding: 78px 16px; }

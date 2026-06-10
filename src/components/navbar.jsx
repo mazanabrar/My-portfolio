@@ -7,9 +7,7 @@ function Navbar() {
     { name: 'About me', targetId: 'about' },
     { name: 'Skills', targetId: 'skills' },
     { name: 'Work', targetId: 'projects' },
-
     // Maps 'Work' directly to your <Projects /> component
-    
   ];
 
   return (
@@ -29,10 +27,10 @@ function Navbar() {
           ))}
         </nav>
 
-        {/* Right Side: Action Button - Now triggers direct dynamic email instantly */}
+        {/* Right Side: Action Button - Now smoothly redirects to your Real-time Glass Form */}
         <div className="header-actions">
           <a 
-            href="mailto:mazanibrar20@gmail.com?subject=Freelance%20Project%20Inquiry%20%E2%80%93%20Let%E2%80%99s%20Work%20Together" 
+            href="#contact" 
             className="cta-button"
           >
             Let's chat
