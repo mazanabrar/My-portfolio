@@ -403,4 +403,4 @@
   .panel-title { font-size: 28px; }
   .panel-meta-row { grid-template-columns: 1fr; gap: 14px; }
   .panel-action-links { flex-direction: column; gap: 10px; }
-}
+}.projects-intro{max-width:760px;color:var(--text-secondary,#98a3b8);font-size:17px;line-height:1.75;margin:-18px 0 42px}.project-mini-stack{display:flex;gap:7px;flex-wrap:wrap;margin-top:18px}.project-mini-stack span{font-size:10px;font-weight:700;letter-spacing:.05em;padding:6px 9px;border-radius:999px;border:1px solid rgba(80,145,255,.18);color:#9fb4d7;background:rgba(24,39,65,.45)}.case-highlight-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0 28px}.case-highlight-grid div{padding:12px 14px;border:1px solid rgba(255,255,255,.08);border-radius:12px;background:rgba(255,255,255,.025);color:#b8c5d9;font-size:13px}.case-note{margin-top:26px!important;font-size:12px!important;opacity:.62}.close-panel-btn{font-size:30px;line-height:1}

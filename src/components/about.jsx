@@ -58,7 +58,7 @@ class MyApp extends StatelessWidget {
 export default function Experience() {
   return (
     <div className="interactive-node">
-      <h1>Design First, Experience Always</h1>
+      <h1>Build for the problem. Design for the people.</h1>
       <p>Building high-performance reactive web apps.</p>
     </div>
   );
@@ -142,7 +142,7 @@ class Database Connection {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Architecture Pipeline Portfolio</title>
+    <title>From idea to shipped product Portfolio</title>
 </head>
 <body>
     <main id="root" class="dom-rendering-active"></main>
@@ -163,17 +163,16 @@ class Database Connection {
     }
   ];
 
-  const [activeTech, setActiveTech] = useState(tools);
+  const [activeTech, setActiveTech] = useState(tools[0]);
 
   // 🪐 Real-time Terminal Log Simulator Data Stream
   const mockLogs = [
-    { text: "System pipeline checking init...", type: "info" },
-    { text: "Compiling Flutter Widgets & Engine...", type: "process" },
-    { text: "Hot Reload triggered: DOM re-rendered in 4.2ms", type: "success" },
-    { text: "Syncing Laravel REST APIs & Token validation...", type: "process" },
-    { text: "PostgreSQL Database handshake verified. [OK]", type: "success" },
-    { text: "Optimizing Tailwind CSS layout structure...", type: "info" },
-    { text: "Production build compiled with 0 warnings.", type: "success" }
+    { text: "Requirements mapped to a clear product flow.", type: "success" },
+    { text: "Architecture and data model designed.", type: "process" },
+    { text: "Frontend, backend and APIs integrated.", type: "success" },
+    { text: "Core workflows tested against real use cases.", type: "process" },
+    { text: "Experience polished for web and mobile.", type: "info" },
+    { text: "Release candidate ready to ship.", type: "success" }
   ];
 
   const [currentLogIndex, setCurrentLogIndex] = useState(0);
@@ -220,7 +219,7 @@ class Database Connection {
         </motion.p>
 
         <motion.h2 className="about-headline" variants={itemVariants}>
-           UI/UX-focused developer crafting intuitive cross-platform experiences.
+           I turn complex ideas into scalable digital products — from architecture to experience.
         </motion.h2>
 
         <div className="about-grid main-narrative-split">
@@ -233,19 +232,19 @@ class Database Connection {
             transition={{ type: "spring", stiffness: 200, damping: 18 }}
           >
             <div className="card-glass-glow"></div>
-            <h3 className="section-sub-title">Core Architecture Philosophy</h3>
-            <p className="highlight-lead">Design First, Experience Always</p>
+            <h3 className="section-sub-title">Product Engineering Philosophy</h3>
+            <p className="highlight-lead">Build for the problem. Design for the people.</p>
             
             <p>
-              I specialize in building clean, responsive, and user-focused interfaces where UI/UX plays the central role. My goal is to transform complex ideas into simple, intuitive, and meaningful digital experiences across mobile and web platforms.
+              I build complete digital products around real business workflows — not isolated screens or disconnected features. My work spans backend architecture, APIs, web interfaces, mobile applications, databases, and AI-powered experiences.
             </p>
             <p>
-              In today’s modern development era, I actively use AI as a support tool to speed up research, debugging, and development workflows. It helps me focus more on creativity, logic, and product thinking while building real-world applications.
+              I focus on systems that are practical to maintain, interfaces that are easy to understand, and architecture that can evolve as the product grows. The goal is always the same: ship something useful, reliable, and thoughtfully engineered.
             </p>
 
             <div className="about-ai-note">
               <span>
-                <strong>Note:</strong> AI is a powerful assistant that enhances productivity, but it is not a replacement for technical skills, problem-solving ability, or human creativity.
+                <strong>Approach:</strong> understand the workflow first, choose the right stack second, then build and refine around real user needs.
               </span>
             </div>
           </motion.div>
@@ -260,13 +259,13 @@ class Database Connection {
             <div className="card-glass-glow"></div>
             <div className="pipeline-card-header">
               <h3 className="section-sub-title">Development Lifecycle</h3>
-              <p className="pipeline-lead">Architecture Pipeline</p>
+              <p className="pipeline-lead">From idea to shipped product</p>
             </div>
             
             <div className="pipeline-flow-container">
-              <div className="pipeline-node node-figma" title="UI/UX Wireframing">
+              <div className="pipeline-node node-figma" title="Understand the product">
                 <FaFigma />
-                <span className="node-caption">Design</span>
+                <span className="node-caption">Discover</span>
               </div>
               
               <div className="pipeline-connector-line">
@@ -277,9 +276,9 @@ class Database Connection {
                 />
               </div>
 
-              <div className="pipeline-node node-frontend" title="Cross-Platform Interface">
+              <div className="pipeline-node node-frontend" title="Design the experience">
                 <SiFlutter />
-                <span className="node-caption">Frontend</span>
+                <span className="node-caption">Design</span>
               </div>
 
               <div className="pipeline-connector-line">
@@ -290,9 +289,9 @@ class Database Connection {
                 />
               </div>
 
-              <div className="pipeline-node node-backend" title="Robust Server Architecture">
+              <div className="pipeline-node node-backend" title="Build the product">
                 <FaLaravel />
-                <span className="node-caption">Backend</span>
+                <span className="node-caption">Build</span>
               </div>
 
               <div className="pipeline-connector-line">
@@ -303,16 +302,16 @@ class Database Connection {
                 />
               </div>
 
-              <div className="pipeline-node node-database" title="Data Integrity Layers">
+              <div className="pipeline-node node-database" title="Integrate and ship">
                 <SiPostgresql />
-                <span className="node-caption">Database</span>
+                <span className="node-caption">Ship</span>
               </div>
             </div>
 
             <div className="pipeline-terminal-terminal">
               <div className="terminal-top-bar">
                 <span className="term-dot-red"></span>
-                <span className="term-text-title">live_compilation_stream.sh</span>
+                <span className="term-text-title">product_delivery.sh</span>
               </div>
               <div className="terminal-log-output">
                 <AnimatePresence mode="wait">

@@ -20,8 +20,8 @@ function Navbar() {
 
   // Explicit mapping structure for smooth anchors
   const navLinks = [
-    { name: 'About me', targetId: 'about' },
-    { name: 'Skills', targetId: 'skills' },
+    { name: 'About', targetId: 'about' },
+    { name: 'Stack', targetId: 'skills' },
     { name: 'Work', targetId: 'projects' },
   ];
 

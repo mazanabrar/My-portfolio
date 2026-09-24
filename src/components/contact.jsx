@@ -68,7 +68,7 @@ function Contact() {
         <div className="contact-glass-card">
           <motion.div className="status-badge-row" variants={itemVariants}>
             <div className="pulse-green-dot"></div>
-            <span className="status-text">Available for Freelance & Full-time Roles</span>
+            <span className="status-text">Available for freelance & product collaborations</span>
           </motion.div>
 
           <motion.h2 className="contact-headline" variants={itemVariants}>
@@ -76,8 +76,7 @@ function Contact() {
           </motion.h2>
           
           <motion.p className="contact-subtext" variants={itemVariants}>
-            I am available for scalable frontend architectures, high-end portfolio improvements, 
-            and practical React application engineering. Drop a message to start.
+            I help businesses turn ideas and operational problems into reliable SaaS platforms, web applications, mobile products, and AI-powered workflows. Tell me what you are building and where you need help.
           </motion.p>
 
           {/* 🌟 PREMIUM REAL-TIME INPUT FIELDS FORM */}
@@ -137,7 +136,7 @@ function Contact() {
           <motion.div className="contact-footer-meta" variants={itemVariants}>
             <div className="meta-block">
               <span>Based In</span>
-              <p>Pakistan, PK</p>
+              <p>Pakistan · Remote Worldwide</p>
             </div>
             
             <div className="meta-block">
