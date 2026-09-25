@@ -11,7 +11,8 @@
 }
 
 /* 🪐 HYPER NEON AMBIENT ORBS */
-.neon-orb-blue, .neon-orb-violet {
+.neon-orb-blue,
+.neon-orb-violet {
   position: absolute;
   border-radius: 50%;
   filter: blur(140px);
@@ -24,7 +25,7 @@
 .neon-orb-blue {
   width: 600px;
   height: 600px;
-  background: radial-gradient(circle, var(--accent-glow) 0%, rgba(0,0,0,0) 70%);
+  background: radial-gradient(circle, var(--accent-glow) 0%, rgba(0, 0, 0, 0) 70%);
   top: 10%;
   left: -10%;
   animation: floatOrb 20s infinite alternate ease-in-out;
@@ -33,22 +34,28 @@
 .neon-orb-violet {
   width: 550px;
   height: 550px;
-  background: radial-gradient(circle, #7000ff 0%, rgba(0,0,0,0) 70%);
+  background: radial-gradient(circle, #7000ff 0%, rgba(0, 0, 0, 0) 70%);
   bottom: 15%;
   right: -5%;
   animation: floatOrb 25s infinite alternate-reverse ease-in-out;
 }
 
 @keyframes floatOrb {
-  0% { transform: translateY(0px) scale(1); }
-  100% { transform: translateY(50px) scale(1.12); }
+  0% {
+    transform: translateY(0px) scale(1);
+  }
+
+  100% {
+    transform: translateY(50px) scale(1.12);
+  }
 }
 
 .projects-container {
   position: relative;
   z-index: 2;
   width: 100%;
-  max-width: 1140px; /* Increased slightly for better visual presentation */
+  max-width: 1140px;
+  /* Increased slightly for better visual presentation */
 }
 
 .projects-headline {
@@ -70,17 +77,32 @@
 }
 
 /* Slot Formations - Visual layout weight adjust */
-.slot-1 { grid-column: span 7; }
-.slot-2 { grid-column: span 5; margin-top: 50px; }
-.slot-3 { grid-column: span 6; }
-.slot-4 { grid-column: span 6; } /* Added a 4th slot to complete the visual block if needed */
+.slot-1 {
+  grid-column: span 7;
+}
+
+.slot-2 {
+  grid-column: span 5;
+  margin-top: 50px;
+}
+
+.slot-3 {
+  grid-column: span 6;
+}
+
+.slot-4 {
+  grid-column: span 6;
+}
+
+/* Added a 4th slot to complete the visual block if needed */
 
 /* 🔮 HIGH END TRANSLUCENT MAGAZINE BENTO CARD (With Media Support) */
 .mag-card {
   position: relative;
   display: flex;
   flex-direction: column;
-  padding: 32px; /* Adjusted padding to give media viewport more space */
+  padding: 32px;
+  /* Adjusted padding to give media viewport more space */
   border-radius: 32px;
   cursor: pointer;
   background: var(--social-bg);
@@ -102,7 +124,8 @@
 .mag-visual-wrapper {
   position: relative;
   width: 100%;
-  height: 240px; /* Perfect height for dashboard/app mockups */
+  height: 240px;
+  /* Perfect height for dashboard/app mockups */
   background: var(--code-bg);
   border-radius: 20px;
   margin: 20px 0;
@@ -114,19 +137,24 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: top center; /* Dashboard previews look stunning from top */
+  object-position: top center;
+  /* Dashboard previews look stunning from top */
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Hover Physics: Web Preview scrolls or zooms smoothly */
 .mag-card:hover .project-visual-media {
-  transform: scale(1.05) translateY(-5px); /* Creates a mini scrolling web look */
+  transform: scale(1.05) translateY(-5px);
+  /* Creates a mini scrolling web look */
 }
 
 /* Glass shine overlay running over the screenshot image */
 .glass-shine-layer {
   position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 50%);
   pointer-events: none;
   z-index: 2;
@@ -177,7 +205,8 @@
 
 /* Footer Control Elements */
 .mag-card-footer {
-  margin-top: auto; /* Pushes footer perfectly to bottom regardless of image height */
+  margin-top: auto;
+  /* Pushes footer perfectly to bottom regardless of image height */
   padding-top: 24px;
   display: flex;
   align-items: center;
@@ -203,7 +232,10 @@
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.mag-card:hover .mag-action-text { color: var(--accent); }
+.mag-card:hover .mag-action-text {
+  color: var(--accent);
+}
+
 .mag-card:hover .mag-btn-circle {
   background: var(--accent);
   color: #ffffff;
@@ -215,7 +247,10 @@
    =================================================== */
 .modal-backdrop {
   position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
@@ -229,7 +264,7 @@
   max-width: 580px;
   height: 100vh;
   background: var(--social-bg);
-  backdrop-filter: blur(40px);
+  backdrop-filter: blur(40px) !important;
   -webkit-backdrop-filter: blur(40px);
   border-left: 1px solid var(--border);
   padding: 50px;
@@ -271,8 +306,8 @@
   transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), color 0.25s ease;
 }
 
-.close-panel-btn:hover { 
-  transform: scale(1.15) rotate(90deg); 
+.close-panel-btn:hover {
+  transform: scale(1.15) rotate(90deg);
   color: var(--accent);
 }
 
@@ -310,7 +345,12 @@
   margin-bottom: 4px;
 }
 
-.panel-meta-row p { font-size: 14px; font-weight: 600; color: var(--text-h); margin: 0; }
+.panel-meta-row p {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-h);
+  margin: 0;
+}
 
 /* NEW: LIVE ACTION LINKS INSIDE DRAWER MODULE */
 .panel-action-links {
@@ -319,7 +359,8 @@
   margin-bottom: 30px;
 }
 
-.panel-btn-primary, .panel-btn-secondary {
+.panel-btn-primary,
+.panel-btn-secondary {
   flex: 1;
   display: inline-flex;
   align-items: center;
@@ -337,6 +378,7 @@
   background: var(--accent);
   color: #ffffff;
 }
+
 .panel-btn-primary:hover {
   box-shadow: 0 8px 20px var(--accent-glow);
   transform: translateY(-2px);
@@ -347,6 +389,7 @@
   color: var(--text-h);
   border: 1px solid var(--border);
 }
+
 .panel-btn-secondary:hover {
   background: var(--border);
   transform: translateY(-2px);
@@ -358,23 +401,27 @@
   margin-bottom: 30px;
 }
 
-.panel-body h3 { 
-  font-size: 14px; 
-  font-weight: 700; 
-  color: var(--text-h); 
-  margin: 0 0 12px 0; 
-  text-transform: uppercase; 
-  letter-spacing: 0.05em; 
+.panel-body h3 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-h);
+  margin: 0 0 12px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
-.panel-body p { 
-  font-size: 15px; 
-  line-height: 1.65; 
-  color: var(--text); 
-  margin-bottom: 34px; 
+.panel-body p {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text);
+  margin-bottom: 34px;
 }
 
-.panel-tech-wrap { display: flex; flex-wrap: wrap; gap: 10px; }
+.panel-tech-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
 
 .panel-tech-pill {
   background: var(--code-bg);
@@ -388,19 +435,119 @@
 
 /* 📱 RESPONSIVE LAYOUT CLEANUP */
 @media (max-width: 900px) {
-  .projects-section { padding: 96px 18px; }
-  .magazine-project-grid { grid-template-columns: 1fr; gap: 24px; }
-  .slot-1, .slot-2, .slot-3, .slot-4 { grid-column: span 1; margin-top: 0; }
-  .detailed-glass-panel { padding: 40px; }
+  .projects-section {
+    padding: 96px 18px;
+  }
+
+  .magazine-project-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .slot-1,
+  .slot-2,
+  .slot-3,
+  .slot-4 {
+    grid-column: span 1;
+    margin-top: 0;
+  }
+
+  .detailed-glass-panel {
+    padding: 40px;
+  }
 }
 
 @media (max-width: 560px) {
-  .mag-card { padding: 24px; border-radius: 24px; }
-  .mag-visual-wrapper { height: 180px; margin: 16px 0; }
-  .modal-backdrop { align-items: flex-end; }
-  .detailed-glass-panel { height: 88svh; padding: 24px 20px; border-radius: 28px 28px 0 0; border-top: 1px solid var(--border); }
-  .panel-hero-visual { height: 180px; margin-bottom: 20px; }
-  .panel-title { font-size: 28px; }
-  .panel-meta-row { grid-template-columns: 1fr; gap: 14px; }
-  .panel-action-links { flex-direction: column; gap: 10px; }
-}.projects-intro{max-width:760px;color:var(--text-secondary,#98a3b8);font-size:17px;line-height:1.75;margin:-18px 0 42px}.project-mini-stack{display:flex;gap:7px;flex-wrap:wrap;margin-top:18px}.project-mini-stack span{font-size:10px;font-weight:700;letter-spacing:.05em;padding:6px 9px;border-radius:999px;border:1px solid rgba(80,145,255,.18);color:#9fb4d7;background:rgba(24,39,65,.45)}.case-highlight-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0 28px}.case-highlight-grid div{padding:12px 14px;border:1px solid rgba(255,255,255,.08);border-radius:12px;background:rgba(255,255,255,.025);color:#b8c5d9;font-size:13px}.case-note{margin-top:26px!important;font-size:12px!important;opacity:.62}.close-panel-btn{font-size:30px;line-height:1}
+  .mag-card {
+    padding: 24px;
+    border-radius: 24px;
+  }
+
+  .mag-visual-wrapper {
+    height: 180px;
+    margin: 16px 0;
+  }
+
+  .modal-backdrop {
+    align-items: flex-end;
+  }
+
+  .detailed-glass-panel {
+    height: 88svh;
+    padding: 24px 20px;
+    border-radius: 28px 28px 0 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .panel-hero-visual {
+    height: 180px;
+    margin-bottom: 20px;
+  }
+
+  .panel-title {
+    font-size: 28px;
+  }
+
+  .panel-meta-row {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .panel-action-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+.projects-intro {
+  max-width: 760px;
+  color: var(--text-secondary, #98a3b8);
+  font-size: 17px;
+  line-height: 1.75;
+  margin: -18px 0 42px
+}
+
+.project-mini-stack {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+  margin-top: 18px
+}
+
+.project-mini-stack span {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .05em;
+  padding: 6px 9px;
+  border-radius: 999px;
+  border: 1px solid rgba(80, 145, 255, .18);
+  color: #9fb4d7;
+  background: rgba(24, 39, 65, .45)
+}
+
+.case-highlight-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 14px 0 28px
+}
+
+.case-highlight-grid div {
+  padding: 12px 14px;
+  border: 1px solid rgba(255, 255, 255, .08);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, .025);
+  color: #b8c5d9;
+  font-size: 13px
+}
+
+.case-note {
+  margin-top: 26px !important;
+  font-size: 12px !important;
+  opacity: .62
+}
+
+.close-panel-btn {
+  font-size: 30px;
+  line-height: 1
+}
