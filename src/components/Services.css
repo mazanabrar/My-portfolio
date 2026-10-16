@@ -1,0 +1,13 @@
+.bbm-services{position:relative;padding:105px 24px 45px;color:var(--text-h);background:transparent}
+.bbm-service-container{max-width:1140px;margin:auto}
+.bbm-services h2{font-size:clamp(34px,4.6vw,54px);font-weight:800;line-height:1.14;letter-spacing:-.03em;max-width:820px;margin:16px 0}
+.bbm-services-intro{color:var(--text);font-size:17px;line-height:1.75;max-width:730px}
+.bbm-offers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin:40px 0}
+.bbm-offer{padding:30px 27px;border:1px solid var(--border);background:var(--social-bg);backdrop-filter:blur(20px);border-radius:26px;box-shadow:var(--shadow)}
+.bbm-offer>span{font-size:13px;font-weight:800;color:var(--accent);letter-spacing:.13em}
+.bbm-offer h3{font-size:24px;font-weight:750;color:var(--text-h);margin:22px 0 13px;line-height:1.2}
+.bbm-offer p{color:var(--text);font-size:15px;line-height:1.75;margin-bottom:20px}
+.bbm-offer small{color:var(--accent);font-size:12px;line-height:1.55}
+.bbm-closer{display:flex;flex-wrap:wrap;align-items:center;gap:15px}
+.bbm-closer strong{margin-right:auto}.bbm-closer a{text-decoration:none;color:var(--text-h);border:1px solid var(--accent-border);background:var(--accent-bg);padding:13px 19px;border-radius:99px;font-size:14px;font-weight:750}
+@media(max-width:790px){.bbm-offers{grid-template-columns:1fr}.bbm-services{padding:72px 18px 20px}}

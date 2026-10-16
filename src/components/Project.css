@@ -551,3 +551,20 @@
   font-size: 30px;
   line-height: 1
 }
+
+/* Built by Mazan V4 project navigation */
+.bbm-filter-bar{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 30px}
+.bbm-filter-chip{padding:11px 18px;border-radius:99px;background:var(--social-bg);color:var(--text-h);border:1px solid var(--border);font-size:13px;font-weight:700;cursor:pointer;transition:background .2s}
+.bbm-filter-chip.active,.bbm-filter-chip:hover{background:var(--accent-bg);border-color:var(--accent)}
+.bbm-card-open{display:block;padding:0;border:0;width:100%;background:none;text-align:left;cursor:pointer;color:inherit;font:inherit}
+.bbm-card-open .mag-card-body{text-align:left}
+.bbm-card-open:focus-visible,.bbm-explore:focus-visible,.bbm-filter-chip:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.bbm-explore{border:none;padding:0;background:none;color:var(--text-h);font-weight:750;font-size:14px;cursor:pointer;text-align:left}
+.bbm-live{font-size:13px;font-weight:750;text-decoration:none;color:var(--accent);border:1px solid var(--accent-border);background:var(--accent-bg);padding:9px 12px;border-radius:12px}
+.bbm-enquiry{display:inline-block;margin:14px 0;color:var(--accent);font-weight:750;text-decoration:none}
+.magazine-project-grid .slot-5,.magazine-project-grid .slot-6{grid-column:span 6}
+.magazine-project-grid .mag-card-footer{flex-wrap:wrap;gap:10px}
+.magazine-project-grid .mag-card-footer .bbm-explore{flex:1}
+.magazine-project-grid .mag-visual-wrapper{margin:18px 0}
+@media(max-width:900px){.magazine-project-grid .slot-5,.magazine-project-grid .slot-6{grid-column:span 1}}
+@media(max-width:560px){.bbm-filter-chip{padding:8px 12px;font-size:12px}}
