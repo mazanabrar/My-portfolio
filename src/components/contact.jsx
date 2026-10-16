@@ -149,6 +149,7 @@ function Contact() {
             <div className="meta-block">
               <span>Digital Spaces</span>
               <div className="social-links-grid">
+                <a href="https://www.instagram.com/builtbymazan/" target="_blank" rel="noopener noreferrer">Built by Mazan · Instagram</a>
                 <a href="https://github.com/mazanabrar" target="_blank" rel="noreferrer">My GitHub</a>
                 <a href="https://www.linkedin.com/in/mazan-abrar-02b679220?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noreferrer">LinkedIn</a>
               </div>

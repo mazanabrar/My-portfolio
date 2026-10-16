@@ -22,6 +22,7 @@ function Navbar() {
   const navLinks = [
     { name: 'About', targetId: 'about' },
     { name: 'Stack', targetId: 'skills' },
+    { name: 'Services', targetId: 'services' },
     { name: 'Work', targetId: 'projects' },
   ];
 
@@ -30,7 +31,7 @@ function Navbar() {
       <div className="site-header">
         {/* Left Side: Brand Name */}
         <a className="brand" href="#hero">
-          Home
+          Built by Mazan
         </a>
 
         {/* Center: Navigation Links */}
